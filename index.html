@@ -33,13 +33,14 @@
 *{box-sizing:border-box}
 html{font-size:var(--fs,100%);-webkit-text-size-adjust:100%}
 h1,h2,h3,.mod-b,.mod-t,.sr>span,.qt,p,li,dd,dt,summary{overflow-wrap:anywhere;min-width:0}
+h3{text-wrap:balance}
 body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--f-body);margin:0;padding-inline:16px;padding-block:18px 8rem;-webkit-tap-highlight-color:transparent}
 #app{max-width:40rem;margin-inline:auto;display:flex;flex-direction:column;gap:20px}
 button{font:inherit;color:inherit}
 a{color:var(--blue);text-underline-offset:3px}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 p{margin:0}
-.eyebrow{font:500 .8125rem/1.2 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font:500 .875rem/1.2 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 h1{font:700 clamp(1.9rem,8.6vw,3rem)/1.04 var(--f-display);letter-spacing:-.03em;margin:8px 0 12px;text-wrap:balance}
 h1 em{font-style:normal;color:var(--stamp)}
 h2{font:700 1.9rem/1.1 var(--f-display);letter-spacing:-.02em;margin:4px 0 0;text-wrap:balance}
@@ -57,18 +58,19 @@ h3{font:600 1.3rem/1.2 var(--f-display);margin:0 0 4px;letter-spacing:-.01em}
 .hole svg{width:60%;height:60%}
 .hole.tried{border:2px solid var(--blue);color:var(--blue)}
 .hole.on{background:var(--stamp);border:0;color:var(--on-stamp)}
-.rank{display:flex;flex-direction:column;gap:2px;padding-left:6px}.belt{display:inline-block;width:2.6rem;height:.7rem;border-radius:3px;border:1.5px solid currentColor;margin-right:10px;vertical-align:middle}.rank strong{font:600 1.5rem/1.2 var(--f-head,inherit)}.pbar{height:10px;border-radius:99px;background:var(--line);margin-left:6px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--stamp);border-radius:99px}.pch{list-style:none;margin:0;padding:0 0 0 6px;display:flex;flex-direction:column;gap:6px}.pch li{display:flex;justify-content:space-between;gap:8px;font-size:.9375rem}.lk{background:none;border:0;padding:0;font:inherit;color:var(--blue);text-decoration:underline;cursor:pointer}.hs{margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:8px}.hs li{padding-left:2px}.punch-f{font-size:.9375rem;color:var(--muted);padding-left:6px}
+.rank{display:flex;flex-direction:column;gap:2px;padding-left:6px}.belt{display:inline-block;position:relative;width:3rem;height:.8rem;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25);border:1.5px solid currentColor;margin-right:10px;vertical-align:middle}.rank strong{font:600 1.5rem/1.2 var(--f-head,inherit)}.pbar{height:10px;border-radius:99px;background:var(--line);margin-left:6px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--stamp);border-radius:99px}.pch{list-style:none;margin:0;padding:0 0 0 6px;display:flex;flex-direction:column;gap:6px}.pch li{display:flex;justify-content:space-between;gap:8px;font-size:.9375rem}.lk{background:none;border:0;padding:0;font:inherit;color:var(--blue);text-decoration:underline;cursor:pointer}.hs{margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:8px}.hs li{padding-left:2px}.punch-f{font-size:.9375rem;color:var(--muted);padding-left:6px}
 
 /* act list */
 .list{display:flex;flex-direction:column;gap:10px}
 .mod{display:grid;grid-template-columns:3rem 1fr auto;gap:14px;align-items:center;text-align:left;width:100%;min-height:4.5rem;padding:12px 14px 12px 12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);cursor:pointer}
-.mod:hover{border-color:var(--blue)}
+.mod{box-shadow:0 1px 2px rgba(19,28,27,.06);transition:border-color .15s,box-shadow .15s,transform .1s}
+.mod:hover{border-color:var(--blue);box-shadow:0 3px 10px rgba(19,28,27,.10)}
 .mod:active,.opt:active,.btn:active{transform:translateY(1px)}
 .mod-n{font:700 1.6rem/1 var(--f-display);background:var(--blue);color:var(--on-blue);border-radius:10px;height:3rem;display:grid;place-items:center}
 .mod-b{display:flex;flex-direction:column;min-width:0;gap:2px}
 .mod-b strong{font:600 1.1rem/1.25 var(--f-display)}
 .mod-t{font:400 .875rem/1.4 var(--f-body);color:var(--muted)}
-.badge{font:500 .8125rem var(--f-mono);padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge{font:500 .875rem var(--f-mono);padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
 .badge.done{background:var(--stamp);color:var(--on-stamp);border-color:transparent}
 .badge.try{border-color:var(--blue);color:var(--blue)}
 
@@ -76,17 +78,17 @@ h3{font:600 1.3rem/1.2 var(--f-display);margin:0 0 4px;letter-spacing:-.01em}
 .points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .pt{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
 .pt h3{font-size:1.4rem}
-.pt .en{font:500 .8125rem var(--f-mono);color:var(--muted)}
+.pt .en{font:500 .875rem var(--f-mono);color:var(--muted)}
 
 /* sources */
 .sb{display:flex;flex-direction:column;gap:8px;font-size:.9375rem;line-height:1.5;padding-top:6px}
 .sr{display:grid;grid-template-columns:7.5rem 1fr;gap:8px;align-items:start}
-.tg{font:500 .75rem/1.3 var(--f-mono);letter-spacing:.03em;text-transform:uppercase;border:1px solid var(--line);border-radius:6px;padding:4px 6px;color:var(--muted);text-align:center}
+.tg{font:500 .8125rem/1.3 var(--f-mono);letter-spacing:.03em;text-transform:uppercase;border:1px solid var(--line);border-radius:6px;padding:4px 6px;color:var(--muted);text-align:center}
 .tg.tr{border-color:var(--blue);color:var(--blue)}
 .tg.un{border-style:dashed}
 .sr>span:last-child{min-width:0}
 .qt{display:block;margin-top:2px;color:var(--fg);font-style:italic}
-.links a{margin-right:12px;display:inline-block;padding:6px 0}
+.links a{margin-right:12px;display:inline-block}
 .actsrc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;font-size:.9375rem}
 .warn{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:.9375rem}
 .sc{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--stamp);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:4px}
@@ -143,7 +145,7 @@ h3{font:600 1.3rem/1.2 var(--f-display);margin:0 0 4px;letter-spacing:-.01em}
 .stamp.miss{background:none;border:3px dashed var(--line);color:var(--muted);box-shadow:none;animation:none;transform:none}
 @keyframes thump{from{transform:scale(1.7) rotate(-8deg);opacity:0}to{transform:scale(1) rotate(-8deg);opacity:1}}
 details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-summary{cursor:pointer;font-weight:700;min-height:28px}
+summary{cursor:pointer;font-weight:700;min-height:44px}
 .ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.9375rem}
 .rev{display:flex;flex-direction:column;gap:12px;margin-top:10px}
 .rev>div{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:4px}
@@ -153,7 +155,7 @@ summary{cursor:pointer;font-weight:700;min-height:28px}
 dl{margin:0;display:flex;flex-direction:column;gap:10px}
 .gl{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px}
 .gl dt{font:600 1.4rem/1.15 var(--f-display)}
-.gl dt span{font:500 .8125rem var(--f-mono);color:var(--muted);margin-left:8px;letter-spacing:0}
+.gl dt span{font:500 .875rem var(--f-mono);color:var(--muted);margin-left:8px;letter-spacing:0}
 .gl dd{margin:0}
 
 /* controls */
@@ -167,13 +169,15 @@ dl{margin:0;display:flex;flex-direction:column;gap:10px}
 .aa:hover{border-color:var(--blue)}
 .aa>span:first-child{font:700 1.15rem/1 var(--f-display)}
 .aa small{font-size:.8em}
-.aa-l{font:500 .8125rem var(--f-mono);color:var(--muted)}
+.aa-l{font:500 .875rem var(--f-mono);color:var(--muted)}
 .size{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .size span{font-weight:700;font-size:.9375rem;margin-right:4px}
 .size button{min-width:44px;min-height:44px;padding:0 12px;border-radius:10px;border:2px solid var(--line);background:var(--card);cursor:pointer;font-weight:700}
 .size button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
 @media (max-width:380px){.sr{grid-template-columns:1fr}.tg{justify-self:start}}
-@media (prefers-reduced-motion:reduce){.stamp{animation:none}*{scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.srcd a,.links a{display:inline-block;padding:11px 4px}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 html{scroll-padding-bottom:9rem}
 details.chap>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:6px 0}
@@ -188,10 +192,10 @@ details.chap .list{margin-top:10px}
 .gtools{display:flex;flex-direction:column;gap:10px}
 .gtools input{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--fg);width:100%;box-sizing:border-box}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips button{font:500 .875rem var(--f-body);padding:6px 10px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:36px}
+.chips button{font:500 .875rem var(--f-body);padding:6px 10px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:44px}
 .chips button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue);border-color:var(--blue)}
 .az{display:flex;flex-wrap:wrap;gap:4px}
-.az button{font:600 .8125rem var(--f-mono);min-width:32px;min-height:32px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.az button{font:600 .875rem var(--f-mono);min-width:44px;min-height:44px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
 .hs label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
 .hs input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--blue)}
 .hs input:checked+span{text-decoration:line-through;opacity:.65}
@@ -480,7 +484,7 @@ var GLOSS=[
 
 /* ---------- Source rendering ---------- */
 function act(k){for(var i=0;i<ACTS.length;i++){if(ACTS[i].k===k){return ACTS[i];}}return null;}
-function lnk(t,u){return '<a href="'+u+'" target="_blank" rel="noopener noreferrer">'+t+'</a>';}
+function lnk(t,u){return '<a href="'+u+'" target="_blank" rel="noopener noreferrer">'+t+'<span class="vh"> (opens in a new tab)</span></a>';}
 var CA={
 ATL:{short:"can be changed",lvl:"Can be changed by collective agreement",sum:"Most of the rules in this Act can be replaced by a collective agreement made or approved by a central union (3 §). A local union agreement can change a few overtime rules, but only for one month. Such agreements may not give worse terms than the EU working time directive.",
  secs:{"5 §":1,"6 §":1,"8 §":1,"8 a §":1,"12 §":1,"13 §":1,"14 §":1},
@@ -1724,7 +1728,7 @@ function home(){
   return '<header><h1>Legal <em style="white-space:nowrap">Self-Defense</em> in a Swedish Working Environment</h1><p class="lede">Seven Swedish labour acts in three chapters. '+[ACTS,ACTS2,ACTS3].reduce(function(n,L){return n+L.reduce(function(m,a){return m+a.qs.length;},0);},0)+' questions.</p></header>'+
     '<aside class="disc" aria-label="Disclaimer"><strong>Please check the facts yourself</strong>This app is learning material, not legal advice. If you doubt anything, check it against the sources provided. Only the Swedish legal texts are official.<span class="disc-p">If you are experiencing issues in your workplace, contact your trade union as soon as possible.</span></aside>'+
     punchCard()+
-    ch1+ch2+ch3+'<button class="glass" data-act="help"><span class="glass-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 12 3 3M12 12 21 5M12 12l9 4M12 12l2 10M12 12 2 17M7.5 7.5 5 11M16.5 8.5l3 3M16 14l-1 4M7 14.5l2 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg><span><strong>In case of emergency, break glass</strong><small>Terminated, harassed, unsafe work, unpaid overtime or cancelled leave</small></span></span></button>'+'<section class="list" aria-label="More">'+
+    ch1+ch2+ch3+'<button class="glass" data-act="help"><span class="glass-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 12 3 3M12 12 21 5M12 12l9 4M12 12l2 10M12 12 2 17M7.5 7.5 5 11M16.5 8.5l3 3M16 14l-1 4M7 14.5l2 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg><span><strong>In case of emergency</strong><small>Terminated, harassed, unsafe work, unpaid overtime or cancelled leave</small></span></span></button>'+'<section class="list" aria-label="More">'+
     '<button class="mod" data-act="sources"><span class="mod-n">i</span><span class="mod-b"><strong>Sources and translations</strong><span class="mod-t">Links, status, amendments</span></span><span class="badge">Open</span></button>'+
     '<button class="mod" data-act="gloss"><span class="mod-n">§</span><span class="mod-b"><strong>Glossary</strong><span class="mod-t">'+GLOSS.length+' Swedish terms</span></span><span class="badge">Open</span></button></section>'+
     '<button class="mod" data-act="union"><span class="mod-n">?</span><span class="mod-b"><strong>Not in a union? Find one here!</strong><span class="mod-t">Three questions to find the right Swedish trade union</span></span><span class="badge">Open</span></button>'+
@@ -1967,7 +1971,6 @@ function help(){
     'If nothing changes, go back to your local union, or your trade union\'s legal advisers if there is none, and ask for help escalating.'],
     [["Unionen: Råd om du känner dig trakasserad",U+"rad-om-du-kanner-dig-trakasserad"]],"Afterwards"),
   card("Your work is unsafe",null,[
-    'If someone is in <b>immediate danger</b>, call 112.',
     'Tell your <b>closest manager</b> first.',
     'If nothing happens, go to your <b>safety representative</b> (skyddsombud). If there is none, contact your local union, or your <b>trade union\'s legal advisers</b> if there is no local union.',
     'Report <b>near-misses</b> too (tillbud), even if nobody was hurt.'],[
@@ -1992,8 +1995,7 @@ function help(){
     'There is no automatic right to extra pay for being called back, but you can agree on it.',
     'During leave you do not have to be reachable or on standby.'],
     [["Unionen: Att avbryta eller ändra semestern",U+"att-avbryta-eller-andra-semestern"],["Sveriges Ingenjörer: Semester",SI2+"semester/"]],"More about cancelled leave")];
-  var top=topRow('<button class="back" data-act="home">← Home</button>')+'<header><div class="eyebrow">In case of emergency</div><h2>What to do now</h2><p class="lede" style="margin-top:8px">'+(S.hs==null?'What is happening to you? Pick one.':'Follow the steps from the top. Tick them off as you go; ticks are saved on this device.')+'</p></header>'+
-  '<aside class="disc"><strong>Danger to life?</strong>Call 112 first.</aside>';
+  var top=topRow('<button class="back" data-act="home">← Home</button>')+'<header><div class="eyebrow">In case of emergency</div><h2>What to do now</h2><p class="lede" style="margin-top:8px">'+(S.hs==null?'What is happening to you? Pick one.':'Follow the steps from the top. Tick them off as you go; ticks are saved on this device.')+'</p></header>';
   function tile(x,i){return '<button class="mod" data-act="hsit" data-i="'+i+'"><span class="mod-n">'+(i+1)+'</span><span class="mod-b"><strong>'+x.t+'</strong><span class="mod-t">'+SUBS[i]+'</span></span><span class="badge">Open</span></button>';}
   var foot='<p class="note">Advice comes from Swedish trade unions; the law links go to riksdagen.se (official) and lagen.nu (not official). It is not legal advice and some union help requires union membership. Your collective agreement may give you different rules. Last checked '+CHECKED+'.</p>';
   if(S.hs==null){return top+'<section class="list" aria-label="Situations">'+C.map(tile).join("")+'</section>'+foot;}
@@ -2026,7 +2028,8 @@ function render(){
   var v=S.view;
   app.innerHTML=v==="home"?home():v==="lesson"?lesson():v==="quiz"?quiz():v==="result"?result():v==="sources"?sources():v==="help"?help():v==="union"?unionView():gloss();
 }
-function go(v){S.view=v;S.leaveArm=false;if(v!=="home"){S.resetArm=false;}render();window.scrollTo(0,0);}
+function go(v){S.view=v;S.leaveArm=false;if(v!=="home"){S.resetArm=false;}render();window.scrollTo(0,0);focusHead();}
+function focusHead(){var h=app.querySelector("h2.q")||app.querySelector("h1,h2");if(h){h.setAttribute("tabindex","-1");try{h.focus({preventScroll:true});}catch(e){}}}
 function diffOf(q){if(q.d){return q.d;}var l=q.a.length;return l<=25?1:(l<=60?2:3);}
 function startRun(only){
   var A=cur(),list;
