@@ -1,0 +1,2029 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Legal Self-Defense in a Swedish Working Environment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column, one screen at a time. Progress lives on a punch card (stämpelkort) with red stamps; petrol ink for actions. Type: Familjen Grotesk (Swedish-drawn) for headings, Atkinson Hyperlegible for reading. */
+:root{
+  --bg:#F2F4F1; --card:#FFFFFF; --fg:#131C1B; --muted:#4F5D5B; --line:#D5DBD6;
+  --blue:#0F4C63; --on-blue:#FFFFFF; --stamp:#C8402F; --on-stamp:#FFFFFF;
+  --good:#1B6B43; --good-bg:#E1F1E7; --bad:#B3261E; --bad-bg:#FBE5E2; --warn-bg:#FAF0CC; --warn:#6A4F00;
+  --f-display:"Familjen Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1716; --card:#162322; --fg:#E8EFEC; --muted:#A3B3AF; --line:#2A3B38;
+    --blue:#7CC4DD; --on-blue:#0E1716; --stamp:#F0705D; --on-stamp:#1A0B08;
+    --good:#5CCB8F; --good-bg:#12301F; --bad:#F59088; --bad-bg:#3A1816; --warn-bg:#3A3015; --warn:#F1D27A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1716; --card:#162322; --fg:#E8EFEC; --muted:#A3B3AF; --line:#2A3B38;
+  --blue:#7CC4DD; --on-blue:#0E1716; --stamp:#F0705D; --on-stamp:#1A0B08;
+  --good:#5CCB8F; --good-bg:#12301F; --bad:#F59088; --bad-bg:#3A1816; --warn-bg:#3A3015; --warn:#F1D27A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs,100%);-webkit-text-size-adjust:100%}
+h1,h2,h3,.mod-b,.mod-t,.sr>span,.qt,p,li,dd,dt,summary{overflow-wrap:anywhere;min-width:0}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--f-body);margin:0;padding-inline:16px;padding-block:18px 8rem;-webkit-tap-highlight-color:transparent}
+#app{max-width:40rem;margin-inline:auto;display:flex;flex-direction:column;gap:20px}
+button{font:inherit;color:inherit}
+a{color:var(--blue);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+p{margin:0}
+.eyebrow{font:500 .8125rem/1.2 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(1.9rem,8.6vw,3rem)/1.04 var(--f-display);letter-spacing:-.03em;margin:8px 0 12px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--stamp)}
+h2{font:700 1.9rem/1.1 var(--f-display);letter-spacing:-.02em;margin:4px 0 0;text-wrap:balance}
+h3{font:600 1.3rem/1.2 var(--f-display);margin:0 0 4px;letter-spacing:-.01em}
+.lede{font-size:1.125rem;color:var(--muted)}
+.note{font-size:.9375rem;line-height:1.55;color:var(--muted)}
+.back{align-self:flex-start;background:none;border:0;padding:10px 0;min-height:44px;font-weight:700;color:var(--blue);cursor:pointer}
+
+/* punch card */
+.punch{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px;position:relative}
+.punch::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;border-radius:var(--r) 0 0 var(--r);background:var(--stamp)}
+.punch-h{display:flex;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:2px dashed var(--line);padding-left:6px}
+.holes{list-style:none;margin:0;padding:0 0 0 6px;display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.hole{aspect-ratio:1;max-width:100%;border-radius:50%;display:grid;place-items:center;border:2px dashed var(--line);font:500 .8125rem var(--f-mono);color:var(--muted)}
+.hole svg{width:60%;height:60%}
+.hole.tried{border:2px solid var(--blue);color:var(--blue)}
+.hole.on{background:var(--stamp);border:0;color:var(--on-stamp)}
+.rank{display:flex;flex-direction:column;gap:2px;padding-left:6px}.belt{display:inline-block;width:2.6rem;height:.7rem;border-radius:3px;border:1.5px solid currentColor;margin-right:10px;vertical-align:middle}.rank strong{font:600 1.5rem/1.2 var(--f-head,inherit)}.pbar{height:10px;border-radius:99px;background:var(--line);margin-left:6px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--stamp);border-radius:99px}.pch{list-style:none;margin:0;padding:0 0 0 6px;display:flex;flex-direction:column;gap:6px}.pch li{display:flex;justify-content:space-between;gap:8px;font-size:.9375rem}.lk{background:none;border:0;padding:0;font:inherit;color:var(--blue);text-decoration:underline;cursor:pointer}.hs{margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:8px}.hs li{padding-left:2px}.punch-f{font-size:.9375rem;color:var(--muted);padding-left:6px}
+
+/* act list */
+.list{display:flex;flex-direction:column;gap:10px}
+.mod{display:grid;grid-template-columns:3rem 1fr auto;gap:14px;align-items:center;text-align:left;width:100%;min-height:4.5rem;padding:12px 14px 12px 12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);cursor:pointer}
+.mod:hover{border-color:var(--blue)}
+.mod:active,.opt:active,.btn:active{transform:translateY(1px)}
+.mod-n{font:700 1.6rem/1 var(--f-display);background:var(--blue);color:var(--on-blue);border-radius:10px;height:3rem;display:grid;place-items:center}
+.mod-b{display:flex;flex-direction:column;min-width:0;gap:2px}
+.mod-b strong{font:600 1.1rem/1.25 var(--f-display)}
+.mod-t{font:400 .875rem/1.4 var(--f-body);color:var(--muted)}
+.badge{font:500 .8125rem var(--f-mono);padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.done{background:var(--stamp);color:var(--on-stamp);border-color:transparent}
+.badge.try{border-color:var(--blue);color:var(--blue)}
+
+/* lesson */
+.points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.pt h3{font-size:1.4rem}
+.pt .en{font:500 .8125rem var(--f-mono);color:var(--muted)}
+
+/* sources */
+.sb{display:flex;flex-direction:column;gap:8px;font-size:.9375rem;line-height:1.5;padding-top:6px}
+.sr{display:grid;grid-template-columns:7.5rem 1fr;gap:8px;align-items:start}
+.tg{font:500 .75rem/1.3 var(--f-mono);letter-spacing:.03em;text-transform:uppercase;border:1px solid var(--line);border-radius:6px;padding:4px 6px;color:var(--muted);text-align:center}
+.tg.tr{border-color:var(--blue);color:var(--blue)}
+.tg.un{border-style:dashed}
+.sr>span:last-child{min-width:0}
+.qt{display:block;margin-top:2px;color:var(--fg);font-style:italic}
+.links a{margin-right:12px;display:inline-block;padding:6px 0}
+.actsrc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;font-size:.9375rem}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:.9375rem}
+.sc{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--stamp);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.h2s{font-size:1.5rem;margin:2px 0 4px}
+.mod2 .mod-n{background:var(--stamp);color:var(--on-stamp)}
+.mod[aria-disabled="true"]{opacity:.7;cursor:not-allowed;border-style:dashed}
+.mod[aria-disabled="true"] .mod-n{background:var(--line);color:var(--muted)}
+.how{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.how strong{font:700 1.1rem var(--f-display)}
+.disc{border:2px solid var(--stamp);border-radius:var(--r);padding:10px 14px;font-size:.875rem;line-height:1.5;background:var(--card)}
+.disc strong{display:block;font:700 1rem var(--f-display);margin-bottom:2px}
+.disc .disc-p{display:block;margin-top:10px}
+.actd .actsrc{border:0;padding:8px 0 0;background:none}
+.pt{gap:6px}
+.pt p{line-height:1.55}
+.can{font-size:.9375rem;line-height:1.5;border:1px dashed var(--warn);color:var(--warn);border-radius:8px;padding:8px 10px}
+.can b{font-weight:700}
+.srcd{border:0;border-top:1px dashed var(--line);border-radius:0;padding:6px 0 0;background:none}
+.srcd>summary{font-weight:700;font-size:.9375rem;color:var(--blue);min-height:44px;display:flex;align-items:center;cursor:pointer}
+.srcline{font-size:.9375rem;color:var(--muted)}
+
+/* quiz */
+.qtop{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:-6px;padding-block:4px}
+.qcount{font:700 1.1rem var(--f-display);font-variant-numeric:tabular-nums}
+.bars{display:flex;gap:5px}
+.seg{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.seg.cur{background:var(--blue)} .seg.ok{background:var(--good)} .seg.no{background:var(--bad)}
+.q{font:600 1.45rem/1.3 var(--f-display);letter-spacing:-.01em;margin:4px 0 0;text-wrap:balance}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:grid;grid-template-columns:2rem 1fr;gap:12px;align-items:start;text-align:left;width:100%;min-height:3.5rem;padding:12px;background:var(--card);border:2px solid var(--line);border-radius:var(--r);cursor:pointer;font-size:1.0625rem;line-height:1.4}
+.opt:not(:disabled):hover{border-color:var(--blue)}
+.opt .L{font:700 .9375rem var(--f-mono);color:var(--muted);border:2px solid var(--line);border-radius:8px;height:2rem;display:grid;place-items:center}
+.opt.ok{border-color:var(--good);background:var(--good-bg)} .opt.ok .L{background:var(--good);color:var(--card);border-color:transparent}
+.opt.no{border-color:var(--bad);background:var(--bad-bg)} .opt.no .L{background:var(--bad);color:var(--card);border-color:transparent}
+.opt.dim{opacity:.8}
+.opt:disabled{cursor:default;color:var(--fg)}
+.fb{border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;border:2px solid}
+.fb:focus{outline:none}
+.fb.ok{background:var(--good-bg);border-color:var(--good)} .fb.no{background:var(--bad-bg);border-color:var(--bad)}
+.fb-h{display:flex;align-items:center;gap:10px}
+.fb-h strong{font:700 1.4rem/1 var(--f-display)}
+.fb.ok .fb-h{color:var(--good)} .fb.no .fb-h{color:var(--bad)}
+.fb-ic{width:1.9rem;height:1.9rem;border-radius:50%;display:grid;place-items:center;background:currentColor}
+.fb-ic svg{width:60%;height:60%;color:var(--card)}
+.fb .tg{background:var(--card)}
+.fb .srcd{border-top-color:currentColor;opacity:1}
+
+/* result */
+.score{display:flex;align-items:center;gap:22px;padding:10px 4px}
+.score-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.score-t h2{font-size:1.5rem;margin:0}
+.big{font:700 3.8rem/.95 var(--f-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stamp{flex:none;width:5.5rem;height:5.5rem;border-radius:50%;background:var(--stamp);color:var(--on-stamp);display:grid;place-items:center;transform:rotate(-8deg);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--stamp);animation:thump .45s cubic-bezier(.2,1.4,.4,1) both}
+.stamp.miss{background:none;border:3px dashed var(--line);color:var(--muted);box-shadow:none;animation:none;transform:none}
+@keyframes thump{from{transform:scale(1.7) rotate(-8deg);opacity:0}to{transform:scale(1) rotate(-8deg);opacity:1}}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+summary{cursor:pointer;font-weight:700;min-height:28px}
+.ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.9375rem}
+.rev{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.rev>div{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:4px}
+.rev b{font-weight:700}
+
+/* glossary */
+dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.gl{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px}
+.gl dt{font:600 1.4rem/1.15 var(--f-display)}
+.gl dt span{font:500 .8125rem var(--f-mono);color:var(--muted);margin-left:8px;letter-spacing:0}
+.gl dd{margin:0}
+
+/* controls */
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:40rem;margin-inline:auto;display:flex;gap:10px}
+.btn{flex:1;min-height:3.5rem;border-radius:12px;border:2px solid transparent;font:700 1.0625rem var(--f-body);cursor:pointer;padding:0 16px}
+.btn.pri{background:var(--blue);color:var(--on-blue)}
+.btn.sec{background:transparent;border-color:var(--line)}
+.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px}
+.aa{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border-radius:99px;border:2px solid var(--line);background:var(--card);cursor:pointer;font-weight:700;color:var(--fg)}
+.aa:hover{border-color:var(--blue)}
+.aa>span:first-child{font:700 1.15rem/1 var(--f-display)}
+.aa small{font-size:.8em}
+.aa-l{font:500 .8125rem var(--f-mono);color:var(--muted)}
+.size{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.size span{font-weight:700;font-size:.9375rem;margin-right:4px}
+.size button{min-width:44px;min-height:44px;padding:0 12px;border-radius:10px;border:2px solid var(--line);background:var(--card);cursor:pointer;font-weight:700}
+.size button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+@media (max-width:380px){.sr{grid-template-columns:1fr}.tg{justify-self:start}}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}*{scroll-behavior:auto!important}}
+
+html{scroll-padding-bottom:9rem}
+details.chap>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:6px 0}
+details.chap>summary::-webkit-details-marker{display:none}
+details.chap>summary .chev{font-size:1.2rem;transition:transform .15s}
+details.chap[open]>summary .chev{transform:rotate(90deg)}
+details.chap .list{margin-top:10px}
+.mod.next{border:2px solid var(--stamp)}
+.badge.nx{background:var(--stamp);color:var(--on-stamp)}
+.pick{font-size:.9375rem;margin:0 0 6px}
+.learned{display:flex;flex-direction:column;gap:6px}
+.gtools{display:flex;flex-direction:column;gap:10px}
+.gtools input{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--fg);width:100%;box-sizing:border-box}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:500 .875rem var(--f-body);padding:6px 10px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:36px}
+.chips button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue);border-color:var(--blue)}
+.az{display:flex;flex-wrap:wrap;gap:4px}
+.az button{font:600 .8125rem var(--f-mono);min-width:32px;min-height:32px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.hs label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.hs input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--blue)}
+.hs input:checked+span{text-decoration:line-through;opacity:.65}
+.hs{list-style:none;padding-left:0}
+.danger{color:var(--stamp)}
+.gl[hidden]{display:none!important}
+.glass{width:100%;padding:6px;border:0;border-radius:var(--r);background:var(--stamp);cursor:pointer;font:inherit;text-align:left}
+.glass-in{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:calc(var(--r) - 4px);border:2px dashed var(--on-stamp);color:var(--on-stamp);background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.08) 14px 16px)}
+.glass-in strong{display:block;font:700 1.125rem/1.25 var(--f-display)}
+.glass-in small{display:block;font-size:.875rem;opacity:.9;margin-top:2px}
+.glass:hover .glass-in,.glass:focus-visible .glass-in{border-style:solid}
+</style>
+</head>
+<body>
+
+
+<main id="app"></main>
+<div class="dock" id="dock" hidden><div class="dock-in" id="dockin"></div></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Sources: only Swedish government pages (riksdagen.se, government.se, do.se) ---------- */
+var RIKS="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/";
+var CHECKED="13 Oct 2026";
+var EN_MBL={pub:"Government Offices of Sweden",status:"Non-official translation",to:"SFS 2021:1114",
+  links:[["government.se page","https://www.government.se/government-policy/labour-law-and-work-environment/1976580-employment-co-determination-in-the-workplace-act-lag-om-medbestammande-i-arbetslivet/"],["PDF","https://www.government.se/contentassets/bea67b6c1de2488cb454f9acd4064961/sfs-1976_580-employment-co-determination-in-the-workplace-act-sfs-2021_1114.pdf"]]};
+var EN_DL={pub:"Diskrimineringsombudsmannen",status:"Non-official translation",to:"SFS 2024:242",
+  links:[["do.se page","https://www.do.se/choose-language/english/discrimination-act-2008567"],["PDF","https://www.do.se/download/18.5672a399197782a562b198/1751351167745/discrimination-act-2008-567-up-to-SFS-2024-242.pdf"]]};
+
+/* ---------- Content: one category per act ---------- */
+var ACTS=[
+{
+  k:"ATL",title:"Working Hours Act",full:"Working Hours Act",sfs:"1982:673",sv:"Arbetstidslag",r:"arbetstidslag-1982673_sfs-1982-673",svTo:"SFS 2022:450",en:null,
+  intro:"How many hours you can be asked to work, how much rest you must get, and when you must get a break.",
+  lesson:[
+    {t:"Ordinary working time",sv:"Ordinarie arbetstid",d:"At most 40 hours per week.",s:"5 §",q:"högst 40 timmar i veckan"},
+    {t:"Overtime cap",sv:"Allmän övertid",d:"General overtime may not exceed 200 hours in a calendar year.",s:"8 §",q:"högst 200 timmar under ett kalenderår"},
+    {t:"Daily rest",sv:"Dygnsvila",d:"At least 11 hours of continuous rest in every 24-hour period.",s:"13 §",q:"minst elva timmars sammanhängande ledighet"},
+    {t:"Weekly rest",sv:"Veckovila",d:"At least 36 hours of continuous rest in every seven-day period.",s:"14 §",q:"minst trettiosex timmars sammanhängande ledighet"},
+    {t:"Breaks",sv:"Rast",d:"Breaks must be arranged so you do not work more than five hours in a row.",s:"15 §",q:"mer än fem timmar i följd"},
+    {t:"Who is not covered",sv:"Undantag",d:"2 § lists exceptions, for example household work, senior executives and employees who control their own working time.",s:"2 §"},
+    {t:"On-call duty",sv:"Jourtid",d:"On-call duty at the workplace is allowed when operations require it: at most 48 hours over four weeks or 50 hours in a calendar month.",s:"6 §",q:"får jourtid tas ut med högst 48 timmar"},
+    {t:"Overtime per period",sv:"Allmän övertid",d:"General overtime for special needs is limited to 48 hours over four weeks or 50 hours in a calendar month, besides the yearly cap in 8 §.",s:"8 §",q:"får övertid tas ut med högst 48 timmar per arbetstagare"},
+    {t:"Extra overtime",sv:"Extra övertid",d:"For special reasons, up to 150 hours a year beyond general overtime. The four-week and monthly limits still apply.",s:"8 a §",q:"Övertid utöver allmän övertid får tas ut med högst 150 timmar"},
+    {t:"Schedules",sv:"Schema",d:"Changes to ordinary and on-call time must be notified at least two weeks ahead, unless shorter notice is justified.",s:"12 §",q:"minst två veckor i förväg"},
+    {t:"Night",sv:"Natt",d:"Night means 22:00 to 06:00. Night workers have extra limits on daily working time.",s:"13 a §",q:"Med natt avses perioden mellan klockan 22 och klockan 6"}
+  ],
+  qs:[
+    {q:"What is the maximum ordinary working time per week?",a:"40 hours",w:["35 hours","45 hours","48 hours"],e:"Ordinary working time may be at most 40 hours per week.",s:"5 §",sv:"högst 40 timmar i veckan"},
+    {q:"What is the cap on general overtime per calendar year?",a:"200 hours",w:["50 hours","100 hours","400 hours"],e:"General overtime may not exceed 200 hours in a calendar year.",s:"8 §",sv:"högst 200 timmar under ett kalenderår"},
+    {q:"How much unbroken rest must you get every 24 hours?",a:"At least 11 hours",w:["At least 8 hours","At least 9 hours","At least 12 hours"],e:"This is the daily rest (dygnsvila).",s:"13 §",sv:"minst elva timmars sammanhängande ledighet"},
+    {q:"Within every seven days, how much continuous weekly rest (veckovila) must you get?",a:"At least 36 hours",w:["At least 24 hours","At least 48 hours","At least 72 hours"],e:"The weekly rest is 36 consecutive hours in every seven-day period.",s:"14 §",sv:"minst trettiosex timmars sammanhängande ledighet"},
+    {q:"How many hours in a row can you work without a break?",a:"Five hours",w:["Three hours","Six hours","Eight hours"],e:"The Act requires breaks (raster) so that you do not work more than five hours in a row.",s:"15 §",sv:"mer än fem timmar i följd"},
+    {q:"How much on-call duty (jourtid) at the workplace may an employer order?",a:"At most 48 hours per four weeks",w:["At most 10 hours a year","At most 100 hours a week","There is no limit"],e:"On-call duty at the workplace is allowed when operations require it.",s:"6 §",sv:"får jourtid tas ut med högst 48 timmar"},
+    {q:"For special needs, how much general overtime may be ordered per employee over four weeks?",a:"At most 48 hours",w:["At most 10 hours","At most 100 hours","At most 150 hours"],e:"The yearly cap of 200 hours in 8 § applies on top of these period limits.",s:"8 §",sv:"får övertid tas ut med högst 48 timmar per arbetstagare"},
+    {q:"How much extra övertid is allowed per year, on top of general overtime?",a:"Up to 150 hours",w:["Up to 50 hours","Up to 400 hours","None"],e:"The four-week and monthly limits still apply to the combined overtime.",s:"8 a §",sv:"Övertid utöver allmän övertid får tas ut med högst 150 timmar"},
+    {q:"How far ahead must you be told about changes to your hours?",a:"At least two weeks",w:["At least one day","At least two months","Never. The employer can change them at any time"],e:"The same rule covers on-call time.",s:"12 §",sv:"minst två veckor i förväg"},
+    {q:"Which hours count as night under the Act?",a:"22:00 to 06:00",w:["20:00 to 04:00","23:00 to 05:00","00:00 to 06:00"],e:"Night workers have extra limits on daily working time.",s:"13 a §",sv:"Med natt avses perioden mellan klockan 22 och klockan 6"},
+    {q:"You finish work at 22:00. What is the earliest start next morning that still gives you the daily rest?",a:"09:00",w:["07:00", "08:00", "10:00"],e:"You need at least 11 hours of continuous rest in every 24 hours. 22:00 plus 11 hours is 09:00.",s:"13 §",sv:null,eq:null},
+    {q:"True or false: standby time at home counts toward your weekly rest.",a:"False",w:["True"],e:"Standby time at home does not count toward the 36 hours of weekly rest.",s:"14 §",sv:null,eq:null},
+    {q:"Which statement about the Working Hours Act is NOT correct?",a:"The Act sets a fixed extra rate of pay for overtime",w:["Ordinary working time is at most 40 hours a week", "You get at least 11 hours of rest every 24 hours", "Breaks must come before you work five hours in a row"],e:"The Act sets time limits but has no pay rules for overtime. Pay comes from your collective agreement or employment contract.",s:"8 §",sv:null,eq:null},
+    {q:"True or false: overtime may be scheduled in advance as a regular part of your hours.",a:"False",w:["True"],e:"General overtime is for a special need. It cannot become a regular, recurring part of your working time.",s:"8 §",sv:null,eq:null}
+  ]
+},
+{
+  k:"LAS",title:"Employment Protection Act",full:"Employment Protection Act",sfs:"1982:80",sv:"Lag om anställningsskydd (LAS)",r:"lag-198280-om-anstallningsskydd_sfs-1982-80",svTo:"SFS 2022:836",en:null,
+  intro:"How employment starts, what you must be told in writing, and what an employer needs to end a job.",
+  lesson:[
+    {t:"Permanent by default",sv:"Tillsvidareanställning",d:"A contract runs until further notice. Fixed terms are allowed only in the cases listed in 5 and 6 §§.",s:"4 §",q:"tills vidare"},
+    {t:"Fixed-term forms",sv:"Visstidsanställning",d:"Allowed for special fixed-term employment (särskild visstidsanställning), substitute work (vikariat) and seasonal work (säsongsarbete).",s:"5 §"},
+    {t:"Probation",sv:"Provanställning",d:"The probation period may be at most six months. If neither side ends it by the end of the period, it becomes permanent.",s:"6 §",q:"högst sex månader"},
+    {t:"Terms in writing",sv:"Skriftlig information",d:"Core items must be given no later than the seventh calendar day after you start. Some other items may follow within one month.",s:"6 c §",q:"senast den sjunde kalenderdagen"},
+    {t:"Reason for termination",sv:"Sakliga skäl",d:"An employer's termination must rest on objective grounds: shortage of work (arbetsbrist) or reasons personal to you. It is not justified if reasonable other work with the same employer could be offered.",s:"7 §",q:"sakliga skäl"},
+    {t:"Notice period",sv:"Uppsägningstid",d:"At least one month. It grows with years employed: two months from two years, three from four, four from six, five from eight, six from ten.",s:"11 §"},
+    {t:"Fixed-term becomes permanent",sv:"Konvertering",d:"A särskild visstidsanställning becomes permanent after more than 12 months in total within five years, or after more than 12 months of back-to-back fixed-term jobs. A vikariat does after more than two years in total within five years.",s:"5 a §",q:"i sammanlagt mer än tolv månader"},
+    {t:"Termination in writing",sv:"Skriftlig uppsägning",d:"An employer's notice must be in writing. It must say how to challenge it or claim damages, and whether you have rehiring priority. It is given to you personally where possible.",s:"8 §",q:"Uppsägning från arbetsgivarens sida skall vara skriftlig."},
+    {t:"Order of termination",sv:"Turordning",d:"In a redundancy, employees with longer employment time have priority over those with shorter. Ties go to the older employee. A few key employees can be exempted.",s:"22 §",q:"Arbetstagare med längre anställningstid har företräde framför arbetstagare med kortare anställningstid"},
+    {t:"Rehiring priority",sv:"Företrädesrätt",d:"After a redundancy you can have priority to be rehired until nine months after the employment ended. This needs more than 12 months of employment in the last three years (or more than nine months of särskild visstidsanställning).",s:"25 §",q:"till dess nio månader har förflutit från den dag då anställningen upphörde"},
+    {t:"Warning before termination",sv:"Varsel",d:"Before an ordinary termination for personal reasons, the employer must give two weeks' notice and tell the local union at the same time. Before a dismissal (avsked) it is one week.",s:"30 §"}
+  ],
+  qs:[
+    {q:"Under the Employment Protection Act, what is the default form of employment?",a:"Permanent employment",w:["A fixed 12-month contract","A six-month probation","Fixed-term employment"],e:"A contract runs until further notice unless the law allows a fixed term. Fixed terms are allowed only in the cases listed in 5 and 6 §§.",s:"4 §",sv:"tills vidare"},
+    {q:"What is the longest a probationary employment (provanställning) can be?",a:"Six months",w:["Three months","12 months","Two years"],e:"The probation period may be at most six months. If neither side ends it by then, it becomes permanent.",s:"6 §",sv:"högst sex månader"},
+    {q:"When must you get your main job terms in writing?",a:"By the seventh day after you start",w:["After the first month","After the first year","Only if you ask for it"],e:"Core items are due by day seven. Some other items may follow within one month.",s:"6 c §",sv:"senast den sjunde kalenderdagen"},
+    {q:"What must a termination by the employer rest on?",a:"Objective grounds (sakliga skäl)",w:["Whatever the employer decides","A warning from the union","Permission from Arbetsmiljöverket"],e:"A termination is not justified if it would be reasonable to offer you other work with the same employer.",s:"7 §",sv:"sakliga skäl"},
+    {q:"What is the minimum notice period once you have been employed for at least ten years?",a:"Six months",w:["One month","Three months","12 months"],e:"The minimum is one month. It grows with years employed: two months from two years, three from four, four from six, five from eight and six from ten.",s:"11 §",sv:null},
+    {q:"When does a särskild visstidsanställning become permanent?",a:"After more than 12 months",w:["After more than 3 months","After more than 6 months","After more than 3 years"],e:"A vikariat (substitute job) becomes permanent after more than two years in total within five years.",s:"5 a §",sv:"i sammanlagt mer än tolv månader"},
+    {q:"How must an employer give you notice of termination?",a:"In writing",w:["Verbally is enough","By text message only","Through the union only"],e:"The notice must say how to challenge it or claim damages, and whether you have rehiring priority.",s:"8 §",sv:"Uppsägning från arbetsgivarens sida skall vara skriftlig."},
+    {q:"In a redundancy, who has priority to keep their job under the order-of-termination rule?",a:"Employees with longer employment time",w:["Employees with shorter employment time","The youngest employees","Union members"],e:"Ties go to the older employee. A few key employees can be exempted.",s:"22 §",sv:"Arbetstagare med längre anställningstid har företräde framför arbetstagare med kortare anställningstid"},
+    {q:"For how long after a redundancy can you have priority to be rehired?",a:"Nine months",w:["One month","Three months","Five years"],e:"This needs more than 12 months of employment in the last three years. For särskild visstidsanställning it is nine months.",s:"25 §",sv:"till dess nio månader har förflutit från den dag då anställningen upphörde"},
+    {q:"How much advance warning must the employer give before an ordinary termination for personal reasons?",a:"Two weeks",w:["No warning is needed","One day","Two months"],e:"Before a dismissal (avsked) the warning is one week.",s:"30 §",sv:null},
+    {q:"You have worked five years for the same employer and are terminated for redundancy. What is your minimum notice period?",a:"Three months",w:["One month", "Two months", "Five months"],e:"With at least four but under six years of employment, the notice period is at least three months.",s:"11 §",sv:null,eq:null},
+    {q:"True or false: a probationary employment becomes permanent if nobody ends it by the end of the six months.",a:"True",w:["False"],e:"If neither side ends the probation by the end of the period, it becomes permanent employment.",s:"6 §",sv:null,eq:null},
+    {q:"In a redundancy, which rule is the main starting point for the order of termination?",a:"Last in, first out",w:["First in, first out", "Youngest first", "Highest paid first"],e:"Employees with longer employment time keep their jobs first, if they are qualified for the work left. A few key employees can be exempted.",s:"22 §",sv:null,eq:null},
+    {q:"For priority to be rehired, how long must you have worked for the employer in the last three years?",a:"More than 12 months",w:["More than 3 months", "More than 6 months", "More than 24 months"],e:"You need more than 12 months of employment in the last three years. The priority runs until nine months after the job ended.",s:"25 §",sv:null,eq:null}
+  ]
+},
+{
+  k:"MBL",title:"Co-Determination Act",full:"Co-Determination Act",sfs:"1976:580",sv:"Lag om medbestämmande i arbetslivet (MBL)",r:"lag-1976580-om-medbestammande-i-arbetslivet_sfs-1976-580",svTo:"SFS 2026:886",en:EN_MBL,
+  intro:"The rules of the Swedish model: organising, negotiating, collective agreements and industrial action.",
+  lesson:[
+    {t:"Right of association",sv:"Föreningsrätt",d:"The right of employers and employees to belong to an employers' or employees' organisation.",s:"7 §",q:"Med föreningsrätt avses rätt för arbetsgivare och arbetstagare att tillhöra",eq:"the right of employers and employees to belong to an employers' organisation or an employees' organisation"},
+    {t:"No infringement",sv:"Okränkt",d:"The right of association may not be infringed.",s:"8 §",q:"Föreningsrätten skall lämnas okränkt.",eq:"The right of association may not be infringed."},
+    {t:"Right to negotiate",sv:"Förhandlingsrätt",d:"A union may negotiate with an employer on matters about the employer's relationship with a union member. The employer has an equivalent right.",s:"10 §",q:"Arbetstagarorganisation har rätt till förhandling med arbetsgivare",eq:"An employees' organisation shall have the right to negotiate with an employer"},
+    {t:"Negotiate before big changes",sv:"Primär förhandlingsskyldighet",d:"Before deciding significant changes in its activities, an employer must on its own initiative negotiate with the union it is bound to under a collective agreement.",s:"11 §",q:"Innan arbetsgivare beslutar om viktigare förändring av sin verksamhet",eq:"Before an employer takes any decision regarding significant changes in its activities"},
+    {t:"Information",sv:"Informationsplikt",d:"An employer must regularly inform the union about production, finances and personnel policy.",s:"19 §",q:"Arbetsgivare skall fortlöpande hålla arbetstagarorganisation",eq:"An employer is obliged to regularly inform an employees' organisation"},
+    {t:"Collective agreement",sv:"Kollektivavtal",d:"A written agreement between an employer or employers' organisation and a union.",s:"23 §",q:"Med kollektivavtal avses skriftligt avtal mellan arbetsgivarorganisation eller arbetsgivare",eq:"an agreement in writing between an employers' organisation or an employer and an employees' organisation"},
+    {t:"Peace obligation",sv:"Fredsplikt",d:"Parties may not start or join a stoppage of work, blockade or boycott in the situations listed, for example to bring about an amendment to the agreement.",s:"41 §",q:"får inte vidta eller delta i arbetsinställelse",eq:"may not initiate or participate in a stoppage of work (lockout or strike), blockade, boycott"},
+    {t:"Notice of action",sv:"Varsel",d:"Written notice to the other party and the National Mediation Office at least seven working days in advance.",s:"45 §",q:"minst sju arbetsdagar i förväg",eq:"shall give written notice to the other party and the National Mediation Office at least seven working days in advance"},
+    {t:"Local union first",sv:"Förhandling lokalt",d:"Where a local union exists, negotiation goes to it first. If there is no agreement, the central union can be included on request.",s:"14 §",q:"Uppnås icke enighet vid förhandling",eq:"the obligation to negotiate under Sections 11 - 13 shall, in the first instance, be fulfilled"},
+    {t:"Meeting deadline",sv:"Förhandlingssammanträde",d:"A negotiation meeting must generally be held within two weeks if the other party is an individual employer or a local union, and within three weeks otherwise. Cases under 11 to 13 §§ are excluded.",s:"16 §",q:"sammanträde för förhandling hållas inom två veckor",eq:"be held within two weeks of receipt by the other party of a demand for negotiations"},
+    {t:"Who is bound",sv:"Bundenhet",d:"An agreement binds members of the signing organisations within its scope, whether they joined before or after it was made. Leaving the organisation does not end the effect. In practice, the employer must apply the agreement to everyone in the roles it covers, union members or not.",s:"26 §",q:"binder inom sitt tillämpningsområde även medlem i organisationen",eq:"shall also be binding, within its area of applicability, upon a member of such organisation"},
+    {t:"Hiring in outsiders",sv:"Utomstående arbetskraft",d:"Before an employer lets someone who is not an employee do certain work, it must negotiate with the bound union. Short-term work and work needing special skills are exempt.",s:"38 §",q:"på eget initiativ förhandla med den arbetstagarorganisation",eq:"Before an employer decides to allow a particular person to perform certain work on his behalf"},
+    {t:"Mediation",sv:"Medlingsinstitutet",d:"The National Mediation Office mediates labour disputes between employers and unions and works for well-functioning wage formation.",s:"46 §",q:"Institutet ska verka för en väl fungerande lönebildning",eq:"exists to mediate in industrial disputes between an employer or employers' organisation"}
+  ],
+  qs:[
+    {q:"What does the right of association (föreningsrätt) mean?",a:"The right to belong to a union or similar",w:["The employer's right to choose which union you join","The right to a pay rise every year","A rule that all employees must join a union"],e:"Section 8 adds that the right of association may not be infringed.",s:"7 §",sv:"rätt för arbetsgivare och arbetstagare att tillhöra arbetsgivar- eller arbetstagarorganisation",eq:"the right of employers and employees to belong to an employers' organisation or an employees' organisation"},
+    {q:"An employer plans a significant change in its activities. What must it do before deciding?",a:"Negotiate with the union first",w:["Ask Arbetsmiljöverket for permission","Announce it and wait for objections","Hold a vote among all employees"],e:"The duty applies to the union the employer is bound to negotiate with under a collective agreement.",s:"11 §",sv:"Innan arbetsgivare beslutar om viktigare förändring av sin verksamhet",eq:"Before an employer takes any decision regarding significant changes in its activities … he shall, on its own initiative, enter into negotiations"},
+    {q:"What is a collective agreement (kollektivavtal)?",a:"A written deal between employers and a union",w:["A law passed by the Riksdag","A contract between one employee and their manager","A list of rules the employer writes alone"],e:"The Act defines it as a written agreement between the employer side and an employees' organisation.",s:"23 §",sv:"Med kollektivavtal avses skriftligt avtal mellan arbetsgivarorganisation eller arbetsgivare",eq:"an agreement in writing between an employers' organisation or an employer and an employees' organisation"},
+    {q:"What does fredsplikt stop the parties to a collective agreement from doing?",a:"Taking part in a strike or lockout",w:["Negotiating with the other side","Asking the employer for information","Joining a union"],e:"One listed situation is action to bring about an amendment to the agreement.",s:"41 §",sv:"får inte vidta eller delta i arbetsinställelse",eq:"may not initiate or participate in a stoppage of work (lockout or strike), blockade, boycott"},
+    {q:"How much written notice must be given before a strike, lockout or similar action?",a:"Seven working days",w:["No notice is needed","24 hours","30 days"],e:"The notice goes to the other party and to the National Mediation Office (Medlingsinstitutet).",s:"45 §",sv:"minst sju arbetsdagar i förväg",eq:"shall give written notice to the other party and the National Mediation Office at least seven working days in advance"},
+    {q:"Where there is a local union, who does the employer negotiate with first?",a:"The local union",w:["The central union","The National Mediation Office","The Labour Court"],e:"If there is no agreement, the central union can be included on request.",s:"14 §",sv:"Uppnås icke enighet vid förhandling",eq:"the obligation to negotiate under Sections 11 - 13 shall, in the first instance, be fulfilled"},
+    {q:"A local union asks to negotiate. How soon must the meeting normally be held?",a:"Within two weeks",w:["Within two days","Within two months","Within one year"],e:"Three weeks apply in other cases. The parties may agree otherwise, and cases under 11 to 13 §§ are excluded.",s:"16 §",sv:"sammanträde för förhandling hållas inom två veckor",eq:"be held within two weeks of receipt by the other party of a demand for negotiations"},
+    {q:"Who does a collective agreement bind?",a:"Members of the organisations that signed it",w:["Only the people who signed it personally","Every employee in the sector","Only the union's board"],e:"Members already bound by another agreement are not bound by this one. Leaving the organisation does not end the effect. In practice, the employer must apply the agreement to everyone in the roles it covers, union members or not.",s:"26 §",sv:"binder inom sitt tillämpningsområde även medlem i organisationen",eq:"shall also be binding, within its area of applicability, upon a member of such organisation"},
+    {q:"Before an employer lets a non-employee do certain work, what must it do?",a:"Negotiate with the union first",w:["Ask Arbetsmiljöverket for a permit","Advertise the work publicly","Nothing"],e:"Work needing special skills is also exempt. Urgent cases allow the employer to act first.",s:"38 §",sv:"på eget initiativ förhandla med den arbetstagarorganisation",eq:"Before an employer decides to allow a particular person to perform certain work on his behalf"},
+    {q:"Which body mediates labour disputes between employers and unions?",a:"Medlingsinstitutet",w:["Arbetsmiljöverket","Diskrimineringsombudsmannen","Försäkringskassan"],e:"It also works for well-functioning wage formation.",s:"46 §",sv:"Institutet ska verka för en väl fungerande lönebildning",eq:"exists to mediate in industrial disputes between an employer or employers' organisation"},
+    {q:"True or false: written notice of a strike must also go to the National Mediation Office.",a:"True",w:["False"],e:"Notice of a strike, lockout or similar action goes to the other party and to Medlingsinstitutet, at least seven working days ahead.",s:"45 §",sv:null,eq:null},
+    {q:"Which statement about collective agreements is NOT correct?",a:"They bind everyone living in Sweden",w:["They are written agreements", "They bind members of the signing organisations in their scope", "Leaving the organisation does not end the effect"],e:"A collective agreement binds only the members of the signing organisations within its scope. In practice, the employer must apply the agreement to everyone in the roles it covers, union members or not.",s:"26 §",sv:null,eq:null},
+    {q:"The other side is not a private employer or a local union. How soon must a negotiation meeting normally be held?",a:"Within three weeks",w:["Within one week", "Within five weeks", "Within ten weeks"],e:"The general rule is two weeks if the other side is a private employer or local union, and three weeks otherwise.",s:"16 §",sv:null,eq:null},
+    {q:"True or false: parties bound by a collective agreement may start a boycott over a dispute about how the agreement should be read.",a:"False",w:["True"],e:"The peace obligation bars strikes, lockouts, blockades and boycotts used to press a dispute about the agreement or how to read it.",s:"41 §",sv:null,eq:null}
+  ]
+},
+{
+  k:"AML",title:"Work Environment Act",full:"Work Environment Act",sfs:"1977:1160",sv:"Arbetsmiljölag",r:"arbetsmiljolag-19771160_sfs-1977-1160",svTo:"SFS 2026:1001",en:null,
+  intro:"Who is responsible for a safe workplace, who represents staff on safety and who supervises it.",
+  lesson:[
+    {t:"A satisfactory environment",sv:"Tillfredsställande arbetsmiljö",d:"The work environment must be satisfactory given the nature of the work and social and technical developments.",s:"2 kap. 1 §",q:"Arbetsmiljön skall vara tillfredsställande"},
+    {t:"Employer's duty",sv:"Arbetsgivarens ansvar",d:"The employer must take all measures needed to prevent ill health and accidents. Risks should first be changed or replaced.",s:"3 kap. 2 §",q:"vidta alla åtgärder som behövs för att förebygga"},
+    {t:"Skyddsombud",sv:"Safety representative",d:"Workplaces with at least five regular employees must have one. A local union with a collective agreement appoints. If none exists, the employees do.",s:"6 kap. 2 §",q:"minst fem arbetstagare regelbundet sysselsätts"},
+    {t:"Access to information",sv:"Rätt till handlingar",d:"A skyddsombud may take part of the documents and information needed for the assignment.",s:"6 kap. 6 §",q:"rätt att taga del av de handlingar"},
+    {t:"Stopping dangerous work",sv:"Avbryta arbetet",d:"If work poses immediate and serious danger to life or health and it cannot be fixed quickly with the employer, the skyddsombud may stop it until Arbetsmiljöverket has taken a position.",s:"6 kap. 7 §",q:"omedelbar och allvarlig fara för arbetstagares liv eller hälsa"},
+    {t:"Supervision",sv:"Tillsyn",d:"Arbetsmiljöverket supervises that the Act and its regulations are followed.",s:"7 kap. 1 §",q:"Arbetsmiljöverket utövar tillsyn över att denna lag"},
+    {t:"Purpose",sv:"Lagens ändamål",d:"The Act aims to prevent ill health and accidents at work and to achieve a good work environment.",s:"1 kap. 1 §",q:"Lagens ändamål är att förebygga ohälsa och olycksfall i arbetet"},
+    {t:"Systematic work",sv:"Systematiskt arbetsmiljöarbete",d:"The employer must systematically plan, lead and control operations, investigate injuries, assess risks, schedule fixes and document the work when needed.",s:"3 kap. 2 a §",q:"Arbetsgivaren ska systematiskt planera, leda och kontrollera verksamheten"},
+    {t:"Employees' part",sv:"Arbetstagarens medverkan",d:"Employees must take part in the work environment effort, follow the rules, use protective equipment and report immediate serious danger.",s:"3 kap. 4 §",q:"Arbetstagaren skall medverka i arbetsmiljöarbetet"},
+    {t:"Safety committee",sv:"Skyddskommitté",d:"Required where at least 50 employees work regularly. Also at smaller workplaces if staff request it.",s:"6 kap. 8 §",q:"minst femtio arbetstagare regelbundet sysselsätts"},
+    {t:"Minors",sv:"Minderårig",d:"A minor is anyone who has not turned 18.",s:"5 kap. 1 §",q:"Med minderårig avses i denna lag den som icke har fyllt aderton år."}
+  ],
+  qs:[
+    {q:"Who must take all measures needed to prevent ill health and accidents at work?",a:"The employer",w:["The employee","The skyddsombud","Arbetsmiljöverket"],e:"The employer carries the duty. Anything that can cause risk should first be changed or replaced.",s:"3 kap. 2 §",sv:"vidta alla åtgärder som behövs för att förebygga"},
+    {q:"What standard does the Act set for the work environment?",a:"It must be satisfactory for the work done",w:["It must be the cheapest option available","It must match the average in the sector","It only has to meet the employee's own wishes"],e:"This is the basic rule of the Act.",s:"2 kap. 1 §",sv:"Arbetsmiljön skall vara tillfredsställande"},
+    {q:"From how many regularly employed workers must a workplace have a skyddsombud?",a:"Five",w:["Two","Ten","Fifty"],e:"A local union with a collective agreement normally appoints. If there is none, the employees appoint.",s:"6 kap. 2 §",sv:"minst fem arbetstagare regelbundet sysselsätts"},
+    {q:"Work poses immediate and serious danger to life or health and cannot be fixed quickly. What may a skyddsombud do?",a:"Stop it until the authority decides",w:["Nothing. Only the employer can stop work","Wait three weeks, then report it","Stop the work only with a doctor's note"],e:"The employer is first given the chance to fix the danger quickly. If that fails, the skyddsombud can stop the work.",s:"6 kap. 7 §",sv:"omedelbar och allvarlig fara för arbetstagares liv eller hälsa"},
+    {q:"Which authority supervises that the Work Environment Act is followed?",a:"Arbetsmiljöverket",w:["Försäkringskassan","Skatteverket","Diskrimineringsombudsmannen"],e:"The authority supervises both the Act and the regulations issued under it. Ship work is mostly excluded.",s:"7 kap. 1 §",sv:"Arbetsmiljöverket utövar tillsyn över att denna lag"},
+    {q:"What is the purpose of the Work Environment Act?",a:"To prevent ill health and accidents",w:["To set pay levels for dangerous jobs","To regulate working hours","To replace collective agreements"],e:"This is the first rule of the Act.",s:"1 kap. 1 §",sv:"Lagens ändamål är att förebygga ohälsa och olycksfall i arbetet"},
+    {q:"What does systematic work environment management require of the employer?",a:"To plan and check work to avoid risks",w:["Only to react after Arbetsmiljöverket gives an order","To leave it all to the skyddsombud","To inspect once when the business starts"],e:"Fixes are scheduled and the work is documented when needed.",s:"3 kap. 2 a §",sv:"Arbetsgivaren ska systematiskt planera, leda och kontrollera verksamheten"},
+    {q:"What does the Act require of employees?",a:"To follow safety rules and take part",w:["Nothing. Only the employer has duties","To pay for their own protective equipment","To inspect the workplace every month"],e:"Employees must also report immediate serious danger.",s:"3 kap. 4 §",sv:"Arbetstagaren skall medverka i arbetsmiljöarbetet"},
+    {q:"From how many regularly employed workers is a safety committee (skyddskommitté) required?",a:"Fifty",w:["Five","Ten","Twenty"],e:"It is also required at smaller workplaces if staff request it.",s:"6 kap. 8 §",sv:"minst femtio arbetstagare regelbundet sysselsätts"},
+    {q:"Under the Act, who counts as a minor (minderårig)?",a:"Anyone under 18",w:["Anyone under 15","Anyone under 16","Anyone under 21"],e:"Separate rules in the Act restrict work by minors.",s:"5 kap. 1 §",sv:"Med minderårig avses i denna lag den som icke har fyllt aderton år."},
+    {q:"A workplace has seven regularly employed workers. Must it have a skyddsombud?",a:"Yes, from five workers",w:["No, only from ten workers", "No, only from fifty workers", "No, only if the staff ask"],e:"Workplaces with at least five regularly employed workers must appoint a safety representative.",s:"6 kap. 2 §",sv:null,eq:null},
+    {q:"True or false: you are liable for damage if you stop work in immediate, serious danger while waiting for instructions.",a:"False",w:["True"],e:"Employees are not liable for damage caused by refusing to continue work in immediate, serious danger while they wait for instructions.",s:"3 kap. 4 §",sv:null,eq:null},
+    {q:"Which of these is NOT a duty of the employer?",a:"Setting extra pay for dangerous jobs",w:["Preventing ill health and accidents", "Investigating work injuries", "Assessing risks continuously"],e:"The Act requires prevention, systematic management, injury investigation and risk assessment. It does not set pay.",s:"3 kap. 2 a §",sv:null,eq:null},
+    {q:"Whom must the employer notify without delay about a death or a serious work injury?",a:"Arbetsmiljöverket",w:["Försäkringskassan", "Skatteverket", "The local union"],e:"The employer must notify the authority without delay of deaths and serious injuries linked to work.",s:"3 kap. 3 a §",sv:null,eq:null}
+  ]
+},
+{
+  k:"SEM",title:"Annual Leave Act",full:"Annual Leave Act",sfs:"1977:480",sv:"Semesterlag",r:"semesterlag-1977480_sfs-1977-480",svTo:"SFS 2014:424",en:null,
+  intro:"How many leave days you get, when you can take them and how holiday pay is worked out.",
+  lesson:[
+    {t:"The leave year",sv:"Semesterår",d:"Runs from 1 April to 31 March. The period just before it is the earning year (intjänandeår).",s:"3 §",q:"från och med den 1 april ett år till och med den 31 mars påföljande år"},
+    {t:"25 days",sv:"Semesterdagar",d:"25 leave days every leave year. If you start after 31 August in the leave year, you get five.",s:"4 §",q:"tjugofem semesterdagar varje semesterår"},
+    {t:"Short jobs",sv:"Kortare anställning",d:"For employment expected to last no more than three months, the parties may agree that no leave is scheduled. You then get holiday compensation instead.",s:"5 §"},
+    {t:"Notice of leave",sv:"Underrättelse",d:"When leave is scheduled other than by agreement, the employer must notify you at least two months ahead. With special reasons it may be later.",s:"11 §",q:"senast två månader före ledighetens början"},
+    {t:"Four weeks in summer",sv:"Sammanhängande ledighet",d:"Unless otherwise agreed, you get at least four weeks in June to August.",s:"12 §",q:"minst fyra veckor under juni-augusti"},
+    {t:"Holiday pay",sv:"Semesterlön",d:"Under the percentage rule (procentregeln), holiday pay is 12 percent of the pay earned in the earning year.",s:"16 b §"},
+    {t:"Not in notice period",sv:"Uppsägningstid",d:"Leave may not be scheduled during your notice period without your consent. This does not apply if the notice period is longer than six months.",s:"14 §",q:"Semesterledighet får inte utan arbetstagarens medgivande förläggas till uppsägningstid."},
+    {t:"Sick during leave",sv:"Sjukdom under ledighet",d:"If you fall sick during leave and promptly ask, those days do not count as leave days. The rest of the leave is then taken together.",s:"15 §",q:"ska, om arbetstagaren utan dröjsmål begär det"},
+    {t:"Sick absence and holiday pay",sv:"Sjukfrånvaro",d:"Sick absence counts toward earned holiday pay if it totals no more than 180 days in the earning year, or if it results from a work injury.",s:"17 §",q:"om frånvaron under intjänandeåret inte överstiger 180 dagar"},
+    {t:"Saving leave days",sv:"Spara semesterdagar",d:"If you have more than 20 paid leave days in a leave year, you may save the days above 20. Saved days must be taken within five years after the leave year they were saved.",s:"18 §",q:"får spara en eller flera sådana överskjutande dagar"},
+    {t:"Holiday compensation",sv:"Semesterersättning",d:"If employment ends before earned holiday pay has been paid, you get holiday compensation instead. It is due without undue delay and within one month after employment ends.",s:"30 §",q:"senast en månad efter anställningens upphörande"}
+  ],
+  qs:[
+    {q:"How many leave days does the law give an employee per leave year?",a:"25 days",w:["20 days","30 days","35 days"],e:"If employment starts after 31 August in the leave year, the right is five days instead.",s:"4 §",sv:"tjugofem semesterdagar varje semesterår"},
+    {q:"When does the leave year (semesterår) run?",a:"From 1 April to 31 March",w:["From 1 January to 31 December","From 1 May to 30 April","From 1 July to 30 June"],e:"The period just before it is the earning year (intjänandeår).",s:"3 §",sv:"från och med den 1 april ett år till och med den 31 mars påföljande år"},
+    {q:"Unless otherwise agreed, which leave period must you be able to get in summer?",a:"At least four weeks in June to August",w:["At least two weeks in July","At least six weeks in May to September","One week in August"],e:"Leave may be scheduled at other times only for special reasons.",s:"12 §",sv:"minst fyra veckor under juni-augusti"},
+    {q:"If the employer sets your leave dates, how far ahead must it tell you?",a:"Two months before",w:["One week","Two weeks","Six months"],e:"With special reasons the notice can be later, but if possible at least one month before.",s:"11 §",sv:"senast två månader före ledighetens början"},
+    {q:"Under the percentage rule (procentregeln), how large is holiday pay?",a:"12 percent",w:["5 percent","8 percent","25 percent"],e:"The other method is the same-pay rule (sammalöneregeln, 16 a §). It adds a supplement per paid leave day, for example 0.43 percent of monthly pay for monthly-paid employees.",s:"16 b §",sv:null},
+    {q:"Can your employer schedule your leave during your notice period without your consent?",a:"No, unless notice is over six months",w:["Yes, always","Yes, but only in summer","No, and there are no exceptions"],e:"Leave scheduled in a notice period needs your consent.",s:"14 §",sv:"Semesterledighet får inte utan arbetstagarens medgivande förläggas till uppsägningstid."},
+    {q:"You fall sick on leave and tell your employer at once. What happens to the sick days?",a:"They do not count as leave days",w:["They count as leave days anyway","They are deducted from next year's leave","They count as half days"],e:"The remaining leave days are then taken together.",s:"15 §",sv:"ska, om arbetstagaren utan dröjsmål begär det"},
+    {q:"Up to how many sick days a year still earn holiday pay?",a:"180 days",w:["30 days","90 days","365 days"],e:"Absence that results from a work injury also counts.",s:"17 §",sv:"om frånvaron under intjänandeåret inte överstiger 180 dagar"},
+    {q:"Within how long must saved leave days be taken?",a:"Within five years",w:["Within one month","Within one year","They never expire"],e:"Only days above 20 paid leave days in a leave year can be saved.",s:"18 §",sv:"får spara en eller flera sådana överskjutande dagar"},
+    {q:"Employment ends before earned holiday pay has been paid. When is the holiday compensation due?",a:"Within one month",w:["Only at the start of the next leave year","Within one year","It is not paid"],e:"Holiday compensation (semesterersättning) replaces the holiday pay.",s:"30 §",sv:"senast en månad efter anställningens upphörande"},
+    {q:"You start a new job on 1 October. How many leave days do you get in your first leave year?",a:"Five days",w:["25 days", "12 days", "None"],e:"If you start after 31 August in the leave year, you get five days.",s:"4 §",sv:null,eq:null},
+    {q:"True or false: sick days during your leave always count as leave days.",a:"False",w:["True"],e:"If you ask without delay, the sick days do not count as leave days.",s:"15 §",sv:null,eq:null},
+    {q:"Which statement about saved leave days is NOT correct?",a:"You can save any of your 25 days",w:["Only days above 20 can be saved", "Saved days must be taken within five years", "You cannot save days in a year when you take saved days"],e:"Only paid leave days above 20 can be saved, and they must be taken within five years.",s:"18 §",sv:null,eq:null},
+    {q:"True or false: your leave can be placed in your notice period without your consent if the notice is longer than six months.",a:"True",w:["False"],e:"Leave may not be placed in notice time without your consent, except when the notice period is longer than six months.",s:"14 §",sv:null,eq:null}
+  ]
+},
+{
+  k:"DL",title:"Discrimination Act",full:"Discrimination Act",sfs:"2008:567",sv:"Diskrimineringslag",r:"diskrimineringslag-2008567_sfs-2008-567",svTo:"SFS 2025:736",en:EN_DL,
+  intro:"The protected grounds, what counts as harassment, and protection when you speak up.",
+  lesson:[
+    {t:"Seven grounds",sv:"Diskrimineringsgrunder",d:"The Act protects against discrimination on seven grounds: sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation and age.",s:"1 kap. 1 §",eq:"sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation or age"},
+    {t:"Harassment",sv:"Trakasserier",d:"Conduct that violates a person's dignity and is associated with a ground of discrimination.",s:"1 kap. 4 §",q:"ett uppträdande som kränker någons värdighet",eq:"conduct that violates a person's dignity and that is associated with one of the grounds of discrimination"},
+    {t:"Employers",sv:"Arbetsgivare",d:"An employer may not discriminate against employees, job applicants, interns, or agency and hired workers.",s:"2 kap. 1 §",q:"En arbetsgivare får inte diskriminera den som hos arbetsgivaren",eq:"An employer may not discriminate against a person who, with respect to the employer, is an employee"},
+    {t:"Reprisals",sv:"Repressalier",d:"An employer may not retaliate against an employee who reports a violation, takes part in an investigation, or rejects or gives in to harassment.",s:"2 kap. 18 §",q:"En arbetsgivare får inte utsätta en arbetstagare för repressalier",eq:"An employer may not subject an employee to reprisals because the employee has reported or called attention to the fact that the employer has acted contrary to this Act"},
+    {t:"Diskrimineringsombudsmannen",sv:"Diskrimineringsombudsmannen",d:"DO supervises that the Act is followed.",s:"4 kap. 1 §",q:"Diskrimineringsombudsmannen ska utöva tillsyn över att denna lag följs",eq:"Diskrimineringsombudsmannen is to supervise compliance with this Act."},
+    {t:"Indirect discrimination",sv:"Indirekt diskriminering",d:"A seemingly neutral rule or practice that puts people with a protected characteristic at a particular disadvantage. It is allowed only if it has a legitimate purpose and the means are appropriate and necessary.",s:"1 kap. 4 §",q:"som framstår som neutralt men som kan komma att särskilt missgynna",eq:"disadvantaged by the application of a provision, a criterion or a procedure that appears neutral"},
+    {t:"Accessibility",sv:"Bristande tillgänglighet",d:"A person with a disability is disadvantaged because reasonable accessibility measures were not taken. Costs, practicality and the length of the relationship are considered.",s:"1 kap. 4 §",q:"åtgärder för tillgänglighet inte har vidtagits",eq:"a person with disability is disadvantaged through a failure to take measures for accessibility"},
+    {t:"Duty to investigate",sv:"Utredningsskyldighet",d:"If an employer learns that an employee has been subjected to harassment or sexual harassment at work, it must investigate and take reasonable measures to prevent it happening again.",s:"2 kap. 3 §",q:"är arbetsgivaren skyldig att utreda omständigheterna",eq:"If an employer becomes aware that an employee considers that he or she has been subjected"},
+    {t:"Active measures",sv:"Aktiva åtgärder",d:"Ongoing preventive and promotional work against discrimination. Employers with 25 or more employees must document it in writing. Employers with 10 to 24 employees document their pay survey.",s:"3 kap. 13 §",q:"sysselsatte 25 eller fler arbetstagare",eq:"Employers who employed 25 or more workers as of the beginning of the calendar year are to document in writing"},
+    {t:"Compensation",sv:"Diskrimineringsersättning",d:"Anyone who breaks the prohibitions must pay compensation for the violation.",s:"5 kap. 1 §",q:"ska betala diskrimineringsersättning för den kränkning",eq:"shall pay compensation for discrimination for the offence resulting from the infringement"}
+  ],
+  qs:[
+    {q:"How many grounds of discrimination does the Act list?",a:"Seven",w:["Three","Five","Nine"],e:"They are sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation and age.",s:"1 kap. 1 §",sv:null,eq:"sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation or age"},
+    {q:"Which of these is one of the grounds in the Act?",a:"Religion or other belief",w:["Education level","Political opinion","Trade union membership"],e:"Education level, home town and club loyalty are not on the list.",s:"1 kap. 1 §",sv:null,eq:"sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation or age"},
+    {q:"How does the Act define harassment (trakasserier)?",a:"Conduct that violates dignity and links to a ground",w:["Any disagreement between colleagues","A manager giving a negative performance review","Being asked to work overtime"],e:"Sexual harassment is conduct of a sexual nature that violates a person's dignity.",s:"1 kap. 4 §",sv:"ett uppträdande som kränker någons värdighet",eq:"conduct that violates a person's dignity and that is associated with one of the grounds of discrimination"},
+    {q:"You report that your employer has broken the Act. May the employer retaliate?",a:"No, reprisals are banned",w:["Yes, if the manager disagrees","Yes, but only in your first year","Yes, any report can be answered with a warning"],e:"The ban also covers taking part in an investigation, and rejecting or giving in to harassment.",s:"2 kap. 18 §",sv:"En arbetsgivare får inte utsätta en arbetstagare för repressalier",eq:"An employer may not subject an employee to reprisals because the employee has reported or called attention to the fact that the employer has acted contrary to this Act"},
+    {q:"Which authority supervises that the Discrimination Act is followed?",a:"Diskrimineringsombudsmannen",w:["Arbetsmiljöverket","Försäkringskassan","Skatteverket"],e:"DO first tries to get those covered to comply voluntarily. Arbetsmiljöverket supervises the Work Environment Act.",s:"4 kap. 1 §",sv:"Diskrimineringsombudsmannen ska utöva tillsyn över att denna lag följs",eq:"Diskrimineringsombudsmannen is to supervise compliance with this Act."},
+    {q:"What is indirect discrimination?",a:"A neutral-looking rule that hurts a protected group",w:["Discrimination that is only said, never done","Discrimination by a colleague rather than a manager","Treating everyone exactly the same in all cases"],e:"It is allowed only if the rule has a legitimate purpose and the means are appropriate and necessary.",s:"1 kap. 4 §",sv:"som framstår som neutralt men som kan komma att särskilt missgynna",eq:"disadvantaged by the application of a provision, a criterion or a procedure that appears neutral"},
+    {q:"An employer fails to make reasonable adjustments for a disabled person. What is that?",a:"Discrimination",w:["Harassment","A reprisal","Only a matter for the building owner"],e:"Costs, practicality and the length of the relationship are considered.",s:"1 kap. 4 §",sv:"åtgärder för tillgänglighet inte har vidtagits",eq:"a person with disability is disadvantaged through a failure to take measures for accessibility"},
+    {q:"An employee tells the employer they were harassed at work. What must the employer do?",a:"Investigate and take measures to stop it",w:["Wait to see if it happens again","Leave it to the employee to sort out","Report it to Arbetsmiljöverket and do nothing else"],e:"The duty applies when the employer learns that an employee considers they were subjected to harassment or sexual harassment.",s:"2 kap. 3 §",sv:"är arbetsgivaren skyldig att utreda omständigheterna",eq:"If an employer becomes aware that an employee considers that he or she has been subjected"},
+    {q:"Employers with at least how many employees must document their active measures in writing?",a:"25 employees",w:["5 employees","10 employees","100 employees"],e:"Employers with 10 to 24 employees must document their pay survey in writing.",s:"3 kap. 13 §",sv:"sysselsatte 25 eller fler arbetstagare",eq:"Employers who employed 25 or more workers as of the beginning of the calendar year are to document in writing"},
+    {q:"What must someone who breaks the discrimination prohibitions pay?",a:"Discrimination compensation",w:["Nothing unless the employee resigns","A fine to the Diskrimineringsombudsmannen only","Only the employee's lost wages"],e:"Deterring future violations is a key consideration.",s:"5 kap. 1 §",sv:"ska betala diskrimineringsersättning för den kränkning",eq:"shall pay compensation for discrimination for the offence resulting from the infringement"},
+    {q:"A job ad asks for an employee \"under 30\". What could this be?",a:"Age discrimination",w:["Harassment", "A reprisal", "Nothing, ads are free"],e:"Age is one of the seven grounds. An employer may not discriminate against job applicants.",s:"2 kap. 1 §",sv:null,eq:null},
+    {q:"True or false: an employer with 15 employees must write down its active measures every year.",a:"False",w:["True"],e:"The duty to document active measures starts at 25 employees. Employers with 10 to 24 employees document their pay survey.",s:"3 kap. 13 §",sv:null,eq:null},
+    {q:"Which of these is a form of discrimination in the Act?",a:"Instructions to discriminate",w:["Fair criticism of poor work", "A pay rise given to everyone", "A change of office"],e:"The Act lists direct and indirect discrimination, inaccessibility, harassment, sexual harassment and instructions to discriminate.",s:"1 kap. 4 §",sv:null,eq:null},
+    {q:"True or false: job applicants are protected from discrimination by the employer.",a:"True",w:["False"],e:"The employer may not discriminate against employees, job applicants, interns or hired-in workers.",s:"2 kap. 1 §",sv:null,eq:null}
+  ]
+},
+{
+  k:"FTL",title:"Trade Union Representatives Act",full:"Trade Union Representatives (Status at the Workplace) Act",sfs:"1974:358",sv:"Lag om facklig förtroendemans ställning på arbetsplatsen",r:"lag-1974358-om-facklig-fortroendemans-stallning_sfs-1974-358",svTo:"SFS 2022:837",en:null,
+  intro:"The rights of the person your union appoints to speak for staff at your workplace.",
+  lesson:[
+    {t:"Who is covered",sv:"Facklig förtroendeman",d:"A representative appointed by a union to represent employees at a workplace. The Act applies once the union has notified the employer.",s:"1 §",q:"facklig förtroendeman företräda de anställda"},
+    {t:"No obstruction",sv:"Hindra",d:"An employer may not hinder a representative. At another workplace the representative gets access if work is not significantly disrupted. Space must be provided at their own workplace.",s:"3 §",q:"En arbetsgivare får inte hindra en facklig förtroendeman"},
+    {t:"No worse conditions",sv:"Försämrade arbetsförhållanden",d:"A representative may not get worse working conditions because of the assignment. After it ends, they keep an equal or comparable position.",s:"4 §",q:"får ej med anledning av sitt uppdrag ges försämrade arbetsförhållanden"},
+    {t:"Notice of changes",sv:"Varsel",d:"Before changing a representative's conditions, the employer must give the local union at least two weeks' notice.",s:"5 §",q:"minst två veckor i förväg varsla den lokala arbetstagarorganisationen"},
+    {t:"Time off",sv:"Ledighet",d:"A representative may take the leave the union duties require. It must be reasonable. Scope and timing are agreed with the local union.",s:"6 §",q:"rätt till den ledighet som fordras för det fackliga uppdraget"},
+    {t:"Keep your benefits",sv:"Anställningsförmåner",d:"Leave for union work at the representative's own workplace keeps their employment benefits.",s:"7 §",q:"rätt till bibehållna anställningsförmåner"},
+    {t:"Redundancy priority",sv:"Företräde",d:"In redundancies or temporary lay-offs, a representative can get priority to keep working if that is of special importance for union activity.",s:"8 §",q:"företräde till fortsatt arbete, om det är av särskild betydelse"},
+    {t:"Agreements cannot cut rights",sv:"Ogiltigt",d:"An agreement that reduces a representative's rights under the Act is void. Certain sections can be adjusted by agreements at central union level.",s:"2 §",q:"rättigheter enligt denna lag inskränks är ogiltigt"},
+    {t:"Disputed termination",sv:"Anställningen består",d:"If a representative disputes a termination and it matters greatly to union activity, employment continues until the dispute is settled. Suspension is barred without special reasons.",s:"8 a §",q:"upphör inte förtroendemannens anställning till följd av uppsägningen"},
+    {t:"Damages",sv:"Skadestånd",d:"An employer that breaches the Act owes damages on top of pay and benefits (10 §). A damages claim must be notified within four months from when the damage occurred.",s:"11 §",q:"inom fyra månader från det skadan inträffade"}
+  ],
+  qs:[
+    {q:"Who appoints a facklig förtroendeman covered by the Act?",a:"A trade union",w:["The employer","Arbetsmiljöverket","The Riksdag"],e:"The Act applies once the union has notified the employer of the appointment.",s:"1 §",sv:"facklig förtroendeman företräda de anställda"},
+    {q:"May an employer obstruct a union representative in carrying out their duties?",a:"No, that is not allowed",w:["Yes, if the manager disagrees with the union","Yes, during the first year","Yes, whenever production is busy"],e:"At another workplace, the representative gets access as long as work is not significantly disrupted.",s:"3 §",sv:"En arbetsgivare får inte hindra en facklig förtroendeman"},
+    {q:"Can a union representative be given worse working conditions because of the union assignment?",a:"No, that is not allowed",w:["Yes, if the employer pays extra","Yes, after one year in the role","Yes, if the union agrees in writing"],e:"After the assignment ends, they keep an equal or comparable position.",s:"4 §",sv:"får ej med anledning av sitt uppdrag ges försämrade arbetsförhållanden"},
+    {q:"What does the Act say about time off for union duties?",a:"The leave the duties need, within reason",w:["No time off is allowed during working hours","Only unpaid holiday days may be used","Only the employer decides, case by case"],e:"The leave must not seriously disrupt work. Scope and timing are agreed with the local union.",s:"6 §",sv:"rätt till den ledighet som fordras för det fackliga uppdraget"},
+    {q:"In a redundancy, what extra protection can a union representative have?",a:"Priority to keep working",w:["A higher salary","Double notice pay in every case","Exemption from all termination rules"],e:"A termination that breaks this rule can be declared void.",s:"8 §",sv:"företräde till fortsatt arbete, om det är av särskild betydelse"},
+    {q:"Before an employer changes a representative's working conditions, how much notice must it give the local union?",a:"At least two weeks",w:["One day","At least six months","No notice is needed"],e:"Consultation can be requested, and the change waits until it has taken place.",s:"5 §",sv:"minst två veckor i förväg varsla den lokala arbetstagarorganisationen"},
+    {q:"A representative takes leave for union work at their own workplace. What happens to their employment benefits?",a:"They keep them",w:["They lose them for those days","They are halved","Only the union pays them"],e:"If the employer moves the union activity outside working hours, work-related pay is preserved.",s:"7 §",sv:"rätt till bibehållna anställningsförmåner"},
+    {q:"A representative disputes their termination. Can employment continue during the dispute?",a:"Yes, if it matters greatly to the union",w:["No, employment always ends at once","Only if the employer agrees","Only for the first week"],e:"Suspension is barred without special reasons, and courts can intervene.",s:"8 a §",sv:"upphör inte förtroendemannens anställning till följd av uppsägningen"},
+    {q:"Within how long must a damages claim under the Act be notified?",a:"Within four months",w:["Within four days","Within two years","Within ten years"],e:"A suit must follow within four months of ending any negotiation, or otherwise within eight months.",s:"11 §",sv:"inom fyra månader från det skadan inträffade"},
+    {q:"A representative signs an individual agreement that reduces their rights under the Act. Is it valid?",a:"No, it is void to that extent",w:["Yes, because they signed it","Yes, if the manager asks","Yes, for the first year"],e:"Certain sections can be adjusted by agreements at central union level.",s:"2 §",sv:"rättigheter enligt denna lag inskränks är ogiltigt"},
+    {q:"True or false: after notice of a change, the employer must wait if the representative asks for consultation within one week.",a:"True",w:["False"],e:"The union or representative can request consultation within one week. The employer may not carry out the change until it has taken place.",s:"5 §",sv:null,eq:null},
+    {q:"Which statement about the Act is NOT correct?",a:"It covers unions with no agreement",w:["It covers representatives appointed by a union", "The union must be bound by a collective agreement", "It applies once the union has told the employer"],e:"The Act covers representatives of a union that is bound by a collective agreement.",s:"1 §",sv:null,eq:null},
+    {q:"True or false: a representative who disputes their termination can never keep working during the dispute.",a:"False",w:["True"],e:"If it matters greatly to union activity, employment continues until the dispute is settled.",s:"8 a §",sv:null,eq:null},
+    {q:"If no negotiation was requested, within how long must a damages lawsuit be filed under the Act?",a:"Eight months",w:["Two months", "One year", "Four years"],e:"A claim must first be notified within four months. Without negotiation, the lawsuit must be filed within eight months of the harm.",s:"11 §",sv:null,eq:null}
+  ]
+}
+];
+
+var GLOSS=[
+  ["Kollektivavtal","Collective agreement","A written agreement between an employer side and a union.","MBL","23 §"],
+  ["Föreningsrätt","Right of association","The right to belong to an organisation such as a union.","MBL","7 §"],
+  ["Fredsplikt","Peace obligation","The ban on stoppages of work in the situations listed in the Act.","MBL","41 §"],
+  ["Facklig förtroendeman","Union representative","A person a union appoints to represent staff at a workplace.","FTL","1 §"],
+  ["Tillsvidareanställning","Permanent employment","A contract that runs until further notice. The default.","LAS","4 §"],
+  ["Provanställning","Probationary employment","A trial contract of at most six months.","LAS","6 §"],
+  ["Sakliga skäl","Objective grounds","What a termination by the employer must rest on.","LAS","7 §"],
+  ["Arbetsbrist","Shortage of work","One type of objective ground for termination.","LAS","7 §"],
+  ["Uppsägningstid","Notice period","Time between notice and the last day. At least one month.","LAS","11 §"],
+  ["Övertid","Overtime","General overtime is capped at 200 hours per calendar year.","ATL","8 §"],
+  ["Dygnsvila","Daily rest","At least 11 consecutive hours in every 24 hours.","ATL","13 §"],
+  ["Veckovila","Weekly rest","At least 36 consecutive hours in every seven days.","ATL","14 §"],
+  ["Semesterår","Leave year","1 April to 31 March.","SEM","3 §"],
+  ["Skyddsombud","Safety representative","Watches over the work environment. Required from five regular employees.","AML","6 kap. 2 §"],
+  ["Arbetsmiljöverket","Work Environment Authority","The authority that supervises the Work Environment Act.","AML","7 kap. 1 §"],
+  ["Trakasserier","Harassment","Conduct that violates dignity and is linked to a ground of discrimination.","DL","1 kap. 4 §"],
+  ["Repressalier","Reprisals","Retaliation. Banned against employees who report violations.","DL","2 kap. 18 §"],
+  ["DO","Diskrimineringsombudsmannen","Diskrimineringsombudsmannen. Supervises the Discrimination Act.","DL","4 kap. 1 §"]
+];
+
+/* ---------- Source rendering ---------- */
+function act(k){for(var i=0;i<ACTS.length;i++){if(ACTS[i].k===k){return ACTS[i];}}return null;}
+function lnk(t,u){return '<a href="'+u+'" target="_blank" rel="noopener noreferrer">'+t+'</a>';}
+var CA={
+ATL:{short:"can be changed",lvl:"Can be changed by collective agreement",sum:"Most of the rules in this Act can be replaced by a collective agreement made or approved by a central union (3 §). A local union agreement can change a few overtime rules, but only for one month. Such agreements may not give worse terms than the EU working time directive.",
+ secs:{"5 §":1,"6 §":1,"8 §":1,"8 a §":1,"12 §":1,"13 §":1,"14 §":1},
+ pts:[["3 §","Central-union collective agreement: deviation from the whole Act, or from 5, 6, 7 (2nd para.), 8–10 b, 12–14 and 15 (2nd and 3rd paras.)"],["3 §","Local-union agreement: some overtime rules, for one month only"],["3 §","Employer bound by such an agreement may apply it to workers who are not union members doing that work"]]},
+LAS:{short:"can be changed",lvl:"Can be changed by collective agreement",sum:"Many rules can be replaced by a collective agreement (2 b §, 2 c §), including fixed-term employment, notice periods, the order of termination and rehiring priority. If the employer has a collective agreement, order of termination and rehiring priority are set per agreement area.",
+ secs:{"5 §":1,"5 a §":1,"7 §":1,"11 §":1,"15 §":1,"22 §":2,"25 §":2},
+ pts:[["2 b §","Collective agreement: deviation from 5, 5 a, 22, 25–27 and others; with a central-union agreement also 11 (notice), 15, 21, 28, 40 and 41"],["2 c §","Certain central collective agreements can change what counts as sakliga skäl (7 §)"],["22 §","If the employer is or usually is bound by a collective agreement, order of termination is set per agreement area"],["25 §","Rehiring priority is applied within the agreement area"],["2 d §","Bound employer may apply the agreement to workers who are not union members doing the work"]]},
+MBL:{short:"often required",lvl:"Mostly applies when the employer has a collective agreement",sum:"Key rights only apply if the employer is bound by a collective agreement: negotiating before big changes (11 §), information (19 §), hiring outside workers (38 §) and the peace obligation (41 §). Without an agreement, 13 § and 19 a § apply instead. Many rules can also be changed by collective agreement (4 §).",
+ secs:{"11 §":3,"14 §":1,"38 §":3,"41 §":3},
+ pts:[["11, 12, 19, 38, 39 §§","Apply to a union the employer is bound to by collective agreement"],["41 §","Peace obligation applies to those bound by a collective agreement"],["4 §","Collective agreement may deviate from 11, 12, 14, 19, 21, 22, 28, 33–40, 43, 64 and 65"],["13 §, 19 a §","Cover employers not bound by any collective agreement"]]},
+AML:{short:"applies to everyone",lvl:"Applies to everyone. Agreements matter for representatives",sum:"The Act applies whether or not there is a collective agreement. The agreement matters for who appoints safety representatives and employee members of the safety committee: a local union bound by a collective agreement appoints them. If there is none, the employees do.",
+ secs:{"6 kap. 2 §":3,"6 kap. 8 §":3},
+ pts:[["6 kap. 2 §","Skyddsombud appointed by a local union that is or usually is bound by a collective agreement"],["6 kap. 8 §","Same for employee members of the skyddskommitté"],["6 kap. 9 a §","A collective agreement can set up another body for these matters"]]},
+SEM:{short:"can be changed",lvl:"Can be changed by collective agreement",sum:"Several rules, including leave days, holiday pay and compensation, can be replaced by a collective agreement made or approved by a central union (2 a §). Other sections can be changed by agreement more generally. Check your own collective agreement for the real numbers.",
+ secs:{"3 §":1,"12 §":1,"16 §":1,"16 b §":1,"19 §":1,"30 §":1},
+ pts:[["2 a § 2nd para.","Central-union collective agreement: deviation from 3, 3 a, 9, 11 (2nd para.), 16–16 b, 22, 26, 26 a, 29, 29 a and 30"],["2 a § 3rd para.","Bound employer may apply it to workers who are not union members doing the work"],["2 a § 1st para.","Sections 5, 12, 12 b, 19–21 and 30 a can be changed by agreement"]]},
+DL:{short:"applies to everyone",lvl:"Applies whether or not there is a collective agreement",sum:"The Act protects you with or without a collective agreement. A discriminatory term in a collective agreement can be changed or declared invalid on request (5 kap. 3 §). A union bound by a collective agreement gets information about active measures (3 kap. 12 §).",
+ secs:{"5 kap. 3 §":3,"3 kap. 12 §":3},
+ pts:[["5 kap. 3 §","Discriminatory terms in individual or collective agreements can be revised or declared invalid"],["3 kap. 12 §","Union with a collective agreement gets information on active measures"],["4 kap. 5 §","A central union bound by a collective agreement may ask the Tribunal for an order on active measures"]]},
+FTL:{short:"union needs one",lvl:"Applies when the union has a collective agreement",sum:"The Act covers representatives of a union that is or usually is bound by a collective agreement (1 §). Most rights can be replaced by a central-union collective agreement (2 §). Individual agreements that cut your rights are void.",
+ secs:{"1 §":3,"5 §":1,"6 §":1,"7 §":1,"8 §":1},
+ pts:[["1 §","Applies to representatives of a union that is or usually is bound by a collective agreement"],["2 §","Central-union collective agreement may deviate from 1, 5–7, 8 (1st para.) and 9 a (1st and 2nd paras.)"],["9 §, 10 §","Where an agreement has replaced the Act, the Act's damages and dispute rules still apply"]]}
+};
+var CATXT={1:"This rule can be replaced by a collective agreement. Check yours.",2:"This rule depends on collective agreement areas. Check yours.",3:"This rule only applies, or works differently, when there is a collective agreement."};
+var CAS={"ATL": {"5 §": "A collective agreement made or approved by a central union can replace this rule (3 §).", "6 §": "A collective agreement made or approved by a central union can replace this rule (3 §).", "8 §": "A collective agreement made or approved by a central union can replace this rule (3 §). A local union agreement can change it for one month only.", "8 a §": "A collective agreement made or approved by a central union can replace this rule (3 §). A local union agreement can change it for one month only.", "12 §": "A collective agreement made or approved by a central union can replace this rule (3 §). The agreement must still respect the EU directive's overall protection.", "13 §": "A collective agreement made or approved by a central union can replace this rule (3 §).", "14 §": "A collective agreement made or approved by a central union can replace this rule (3 §)."}, "LAS": {"5 §": "A collective agreement can replace this rule (2 b §).", "5 a §": "A collective agreement can replace this rule (2 b §).", "7 §": "Certain collective agreements between central organisations can change what counts as sakliga skäl (2 c §).", "11 §": "A collective agreement approved by a central union can change notice periods (2 b §).", "15 §": "A collective agreement approved by a central union can replace this rule (2 b §).", "22 §": "Where the employer is bound by a collective agreement, the order of termination is set per agreement area. An agreement can also replace the rule (2 b §).", "25 §": "Rehiring priority applies within the agreement area where one exists. An agreement can also replace the rule (2 b §)."}, "MBL": {"11 §": "This duty only applies to a union the employer is bound to by a collective agreement. An agreement can also replace it (4 §).", "14 §": "A collective agreement can replace this rule (4 §).", "38 §": "This duty only applies to a union the employer is bound to by a collective agreement. An agreement can also replace it (4 §).", "41 §": "The peace obligation applies to employers and employees bound by a collective agreement."}, "AML": {}, "SEM": {"3 §": "A collective agreement approved by a central union can replace this rule (2 a §).", "12 §": "This rule can be changed by agreement (2 a §).", "16 §": "A collective agreement approved by a central union can replace this rule (2 a §).", "16 b §": "A collective agreement approved by a central union can replace this rule (2 a §).", "19 §": "This rule can be changed by agreement (2 a §).", "30 §": "A collective agreement approved by a central union can replace this rule (2 a §)."}, "DL": {"5 kap. 3 §": "A discriminatory term in a collective agreement can be changed or declared invalid on request.", "3 kap. 12 §": "The employer gives this information to a union it is bound to by a collective agreement."}, "FTL": {"1 §": "The Act covers representatives of a union that is, or usually is, bound by a collective agreement.", "5 §": "A collective agreement approved by a central union can replace this rule (2 §).", "6 §": "A collective agreement approved by a central union can replace this rule (2 §).", "7 §": "A collective agreement approved by a central union can replace this rule (2 §).", "8 §": "A collective agreement approved by a central union can replace parts of this rule (2 §)."}};
+function caNote(a,s){
+  var c=CAS[a.k];if(!c||!c[s]){return"";}
+  return '<p class="can"><b>Collective agreement:</b> '+c[s]+'</p>';
+}
+function caBox(a){
+  var c=CA[a.k];if(!c)return"";
+  return '<section class="ca" aria-label="Collective agreements"><strong>Collective agreements: '+c.lvl+'</strong>'+c.sum+'<ul>'+c.pts.map(function(x){return '<li><b>'+x[0]+'</b>: '+x[1]+'</li>';}).join("")+'</ul><span class="note">Source: Swedish original on riksdagen.se, checked '+CHECKED+'.</span></section>';
+}
+function lagenLink(a){return lnk("lagen.nu","https://lagen.nu/"+a.sfs);}
+function riksLink(a){return lnk("riksdagen.se",RIKS+a.r+"/");}
+function enLinks(a){return a.en.links.map(function(l){return lnk(l[0],l[1]);}).join(" ");}
+function srcBlock(a,s,sv,eq){
+  var h='<div class="sb"><div class="sr"><span class="tg">Swedish original</span><span>'+a.title+' '+s+' · '+riksLink(a)+(sv?'<span class="qt" lang="sv">«'+sv+'»</span>':'')+'</span></div>';
+  if(a.en){
+    h+='<div class="sr"><span class="tg tr">English: '+a.en.status.toLowerCase()+'</span><span>'+a.en.pub+', up to '+a.en.to+(eq?'<span class="qt">“'+eq+'”</span>':'')+'<span class="links">'+enLinks(a)+'</span></span></div>';
+  }else{
+    h+='<div class="sr"><span class="tg un">English: unofficial wording</span><span>Written by Claude from the Swedish text. No Swedish government English translation could be opened.</span></div>';
+  }
+  h+='<div class="sr"><span class="tg un">lagen.nu: private site</span><span>Not an official source. '+lagenLink(a)+'</span></div>';
+  return h+'</div>';
+}
+function actSrc(a){
+  var h='<section class="actsrc" aria-label="Sources for this act"><div class="eyebrow">Sources for this act</div>'+
+    '<div class="sr"><span class="tg">Swedish original</span><span><span lang="sv">'+a.sv+' ('+a.sfs+')</span> · '+riksLink(a)+'<br>Text on riksdagen.se includes amendments up to '+a.svTo+', checked '+CHECKED+'.</span></div>';
+  if(a.en){
+    h+='<div class="sr"><span class="tg tr">English: '+a.en.status.toLowerCase()+'</span><span>'+a.en.pub+', amendments up to '+a.en.to+'. <span class="links">'+enLinks(a)+'</span></span></div>';
+    if(a.en.to!==a.svTo){h+='<p class="warn">This translation is older than the Swedish text, so it may miss later amendments.</p>';}
+  }else{
+    h+='<div class="sr"><span class="tg un">English: unofficial wording</span><span>No Swedish government English translation could be opened. The English in this module is Claude\'s own wording of the Swedish text.</span></div>';
+  }
+  h+='<div class="sr"><span class="tg un">lagen.nu: private site</span><span>Not an official source. Read it as a help only. '+lagenLink(a)+'</span></div>';
+  h+='<p class="note">Translations have no legal status. Only the Swedish text is authoritative.</p></section>';
+  return h;
+}
+
+/* ---------- State ---------- */
+var KEY="arbetsratt101.v4";
+var P={best:[null,null,null,null,null,null,null],best2:[null,null,null,null,null,null,null],best3:[null,null,null,null,null,null,null],miss:[]};
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);if(p&&Array.isArray(p.best)&&p.best.length===ACTS.length){P=p;if(!Array.isArray(P.best2)||P.best2.length!==ACTS.length){P.best2=[null,null,null,null,null,null,null];}if(!Array.isArray(P.best3)||P.best3.length!==ACTS.length){P.best3=[null,null,null,null,null,null,null];}if(!Array.isArray(P.miss)){P.miss=[];}}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(P));}catch(e){}}
+function setN(a){return Math.min(a.n||a.qs.length,a.qs.length);}
+function passN(a){return a.pm||Math.ceil(setN(a)*0.8);}
+var S={practice:false,back:null,leaveArm:false,resetArm:false,gk:null,view:"home",m:0,ch:1,qi:0,run:null,picked:null,marks:[],unl:false,mode:null};
+var app=document.getElementById("app");
+var dock=document.getElementById("dock");
+var dockin=document.getElementById("dockin");
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function setDock(h){if(h){dockin.innerHTML=h;dock.hidden=false;}else{dockin.innerHTML="";dock.hidden=true;}}
+var LOCK='<svg viewBox="0 0 24 24" aria-hidden="true" width="26" height="26"><rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/><path d="M8 11V8a4 4 0 018 0v3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
+var CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var TOTALQ=ACTS.reduce(function(n,a){return n+a.qs.length;},0);
+function dom(u){return u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0];}
+var LO="https://lo.se/start/politiska_sakfragor/arbetsratt/lagarna/",SI="https://www.sverigesingenjorer.se/lagar-regler/";
+var UN="https://www.unionen.se/rad-och-stod/";
+var C2=[
+{k:"ATL",intro:"Overtime, extra hours and what counts as pay. The answers are based on advice from Swedish trade unions.",
+ src:[["Regler för övertid",UN+"regler-overtid"],["Oklarheter vid övertid",UN+"oklarheter-vid-overtid"],["Arbetstid och ledighet","https://www.lo.se/i-samhallet/samhallet-a-o/arbetsratt/lagar-om-arbetstid-och-ledighet"],["Arbetstid och arbetstidslagen",SI+"arbetstid/"]],
+ qs:[
+ {sc:"It is 16:30. A server outage hits and your manager asks you to stay two extra hours tonight. You had other plans.",q:"Can the employer order overtime at this short notice?",a:"Yes, if something unforeseen needs extra effort",w:["No, overtime must always be announced two weeks in advance", "No, overtime is only allowed if you have agreed to it in writing", "Yes, but only if the outage happens during a weekend"],e:"Overtime needs something unforeseen that calls for extra effort. It can be ordered with very short notice. Overtime in general still has yearly limits.",p:0,sv:"Det kan ske med bara någon timmes varsel.",law:"8 §"},
+ {sc:"You worked three extra hours on Friday to finish a report. Nobody asked you to. On Monday you ask for overtime pay.",q:"What decides whether you can get overtime compensation?",a:"Whether it was ordered or approved by the employer",w:["How many hours you worked beyond your normal day", "Whether a colleague saw you working late", "Whether you stayed after the office closes at 18:00"],e:"Union advice says overtime must be ordered in advance or approved afterwards to give compensation.",p:1,sv:"För att få ersättning ska övertiden beordras av arbetsgivaren i förväg eller godkännas i efterhand.",law:null},
+ {sc:"Your manager says: from next month, every Friday afternoon is overtime, and it goes into the schedule.",q:"Is that allowed?",a:"No, overtime may not be scheduled in advance",w:["Yes, once it is in the schedule it counts as ordinary time", "Yes, as long as you are told a month ahead", "Yes, as long as you are paid a double rate for it"],e:"Overtime is for special needs that come up unexpectedly.",p:0,sv:"Övertidsarbete får inte schemaläggas.",law:null},
+ {sc:"Your employer offers you extra days off instead of overtime pay.",q:"What should you do before you answer?",a:"Work out what the pay is worth first",w:["Accept at once, because days off are always worth more", "Refuse at once, because pay may never be swapped for time", "Ask a colleague what they would choose and do the same"],e:"Time off can be a fair swap, but only if you know the value of what you give up. Check your own agreement for the rules.",p:1,sv:"Innan du bestämmer dig för att avtala om annan övertidskompensation bör du räkna på värdet.",law:null,ca:"Overtime pay is set by your collective agreement if you have one."},
+ {sc:"You read online that overtime is capped at 200 hours a year. Your workplace has a collective agreement.",q:"Where do you check what applies to you?",a:"In your collective agreement; the limit is often lower",w:["Only in the Working Hours Act, because the law always decides", "Only in your employment contract, which can never be lower", "Nowhere, because the limit is the same at every workplace"],e:"The law's 200 hours applies without a collective agreement. With one, the yearly limit is often lower. Always check your own agreement.",p:0,sv:"Kolla alltid i ditt eget kollektivavtal.",law:"3 §",ca:"With a collective agreement the limits and pay rules can differ from the law."},
+    {sc:"Your manager emails: \"From now on, everyone stays until 20:00 every Thursday.\"",q:"What is wrong with this?",a:"Overtime cannot be a fixed weekly routine",w:["Nothing, managers decide working hours", "Nothing, as long as you get a double rate", "It is only wrong if it falls on a weekend"],e:"Overtime is for unforeseen needs. It cannot be scheduled in advance or become a regular, recurring part of your hours.",p:0,sv:null,law:null},
+    {sc:"Continued: your workplace has no collective agreement. You ask what overtime pay you will get.",q:"Where should the overtime pay be set?",a:"In your employment contract",w:["In the Working Hours Act, which sets a fixed rate", "Nowhere, because overtime is always unpaid", "In a collective agreement from another firm"],e:"The Act has no pay rules. Without a collective agreement, make sure overtime pay is written into your own contract.",p:0,sv:null,law:null,ca:"With a collective agreement, it sets the overtime pay. Without one, your contract must.",cont:true},
+    {sc:"Your manager asks you to give up overtime pay in return for five extra days of leave.",q:"Do you have to agree?",a:"No, giving it up is voluntary",w:["Yes, managers can decide this alone", "Yes, if the company is small", "No, and overtime can never be traded"],e:"Overtime pay is the default. Giving it up is voluntary, and the agreement should be in writing. Five extra days is common.",p:3,sv:null,law:null,ca:"Collective agreements set what overtime pay and compensation leave are worth."}
+  ]},
+{k:"LAS",intro:"What to do when you are terminated or fear it. The answers are based on advice from Swedish trade unions.",
+ src:[["Uppsägning",UN+"om-uppsagning"],["På vilket sätt bör du få uppsägningsbesked?",UN+"pa-vilket-satt-du-bor-fa-uppsagningsbesked"],["Anställningsskydd",LO+"anstallningsskydd"],["Varsel eller uppsägning från arbetsgivarens sida",SI+"varsel-eller-uppsagning-fran-arbetsgivare/"]],
+ qs:[
+ {sc:"Your boss stops you in the corridor and says: \"We are letting you go.\" Nothing is in writing.",q:"What should you do?",a:"Ask for it in writing, handed to you in person",w:["Pack your things and go home, since the boss has spoken", "Wait a few weeks to see if anything arrives by post", "Sign whatever the boss gives you the same day"],e:"A termination from the employer must be in writing and handed to you personally. A spoken termination can still count, so ask for it in writing and contact your local union fast. If there is no local union, contact your trade union's legal advisers.",p:1,sv:"En uppsägning ska alltid vara skriftlig och överlämnas till dig personligen.",law:"8 §"},
+ {sc:"You have received a written termination and you think it is unfair.",q:"How fast must you act to challenge it?",a:"Tell the employer within two weeks",w:["Tell the employer within six months","Tell a court within one year","There is no deadline at all"],e:"To have the termination declared invalid, you must notify the employer within two weeks of the termination. If the letter did not say how to challenge it, you have one month from when the job ended. Claims for damages have four months (41 §). If you miss the deadline you lose the case (42 §), so contact your local union right away.",p:1,sv:null,law:"40 §"},
+ {sc:"You are terminated because of redundancy. Your workplace has a local union.",q:"Who handles the negotiation with the employer?",a:"The local union, which also helps you",w:["You must negotiate alone with the employer", "The employer's own HR department decides everything", "Arbetsmiljöverket takes over the case"],e:"Where there is a local union, it handles the negotiation with the employer. Using union advice fully may require union membership.",p:0,sv:"Om det finns klubb på arbetsplatsen är det den som sköter förhandlingen med arbetsgivaren och hjälper dig.",law:null,ca:"The union's role in negotiation rests on the collective agreement."},
+ {sc:"You get a written redundancy termination. You read it carefully.",q:"What should it say besides how to challenge it?",a:"Whether you have priority to be rehired",w:["What your salary will be in your next job", "Who will take over your work tasks after you", "Which other companies you can apply to"],e:"A redundancy notice must say whether you have priority for re-employment (företrädesrätt till återanställning) and how to claim it.",p:1,sv:"företrädesrätt till återanställning",law:"25 §"},
+ {sc:"You are terminated and want to know how long you must keep working before the employment ends.",q:"How long is your notice period?",a:"It varies, so check the law and your agreement",w:["It is always one month for every employee", "It is always three months for every employee", "The employer can choose any period it likes for you"],e:"Notice periods differ depending on your length of employment and on your collective agreement.",p:0,sv:null,law:"11 §",ca:"A collective agreement approved by a central union can change notice periods."},
+    {sc:"On Monday your manager says: \"We are making redundancies. You are on the list.\"",q:"Before you can be terminated, whom must the employer have contacted?",a:"The union, which can negotiate for you",w:["The Work Environment Authority", "Your next employer", "Nobody, redundancy needs no contact"],e:"Before a termination, the employer must contact your union. If this did not happen, contact the union right away.",p:0,sv:null,law:null,ca:"The union's right to negotiate rests on the collective agreement."},
+    {sc:"Continued: there is no local union at your workplace, but you are a union member.",q:"Whom do you contact?",a:"Your trade union's legal advisers",w:["The Work Environment Authority", "Your employer's own lawyer", "Nobody, you must just wait it out"],e:"If there is no local union, contact your trade union's legal advisers. They can check whether the termination followed the rules.",p:0,sv:null,law:null,cont:true},
+    {sc:"Your employer offers a termination agreement with a payment: \"Sign today and the offer is yours.\"",q:"What should you do?",a:"Wait and involve your union first",w:["Sign at once so you keep the offer", "Sign if the amount sounds fair to you", "Sign after asking a colleague"],e:"Signing is voluntary. Do not sign any agreement or package until your union has been involved, since it can affect your rights and pay.",p:3,sv:null,law:null}
+  ]},
+{k:"MBL",intro:"Reorganisations, negotiations and who has the final say. The answers are based on advice from Swedish trade unions.",
+ src:[["Medbestämmandeförhandling",UN+"medbestammandeforhandling-sa-har-gor-du"],["Arbetsgivaren tycker inte att de behöver förhandla",UN+"arbetsgivaren-tycker-inte-att-de-behover-forhandla"]],
+ qs:[
+ {sc:"Your employer announces a reorganisation that changes your team. You ask the local union when they should have been involved.",q:"When must the employer open negotiations?",a:"As early as possible, before any decision is made",w:["Once the change has started and staff have noticed", "Only if the employees ask for it in writing", "About one month after the decision is taken"],e:"The employer must call for negotiation before major changes, early enough that the union can influence the outcome.",p:0,sv:"i så god tid som möjligt och innan denne har fattat beslut om förändringen",law:"11 §",ca:"The duty to negotiate applies where the employer is bound by a collective agreement."},
+ {sc:"The employer says it does not need to negotiate a new pay system with the union.",q:"Is the employer right?",a:"No, matters under the Act must be negotiated",w:["Yes, pay systems can never be negotiated", "Yes, as long as the staff say they agree", "Yes, unless the union's central office asks for it"],e:"This applies where there is a collective agreement. The union can call for negotiation.",p:1,sv:"Allt som faller under medbestämmandelagen (MBL) är arbetsgivaren skyldig att förhandla om.",law:null,ca:"The duty applies where the employer has a collective agreement."},
+ {sc:"The negotiation ends without agreement. The employer goes ahead with its own plan.",q:"Can a court overrule the employer's decision?",a:"No, the substance cannot be tried in court",w:["Yes, the Labour Court always decides who was right", "Yes, if the union appeals within one week", "Yes, Arbetsmiljöverket decides who was right"],e:"The employer can decide after negotiating.",p:0,sv:"Man kan inte gå till domstol eller annan instans för att få själva sakfrågan prövad.",law:null},
+ {sc:"You are the union rep and you want to request a negotiation on a planned change.",q:"What is the recommended way to ask for a negotiation?",a:"Make it in writing (förhandlingsframställan)",w:["Mention the wish casually in the coffee room", "Wait until the employer calls and asks you to", "Ask your manager to pass it on by text message"],e:"A written request makes things clear. Unions offer a template for this.",p:0,sv:null,law:null},
+ {sc:"You are the union rep. The negotiation is over and the protocol is signed.",q:"What should you do about time limits?",a:"Contact the regional office so no limit expires",w:["Nothing, since there are no time limits of any kind", "Wait six months and then ask what applies", "Only act if the employer contacts you first"],e:"Union advice warns that limitation periods (preskriptionsfrister) can expire.",p:0,sv:null,law:null},
+    {sc:"On Monday your employer announces: \"The decision is made. We merge two teams from 1 January.\"",q:"Has the employer followed the negotiation rules?",a:"No, it must negotiate before deciding",w:["Yes, an announcement is enough", "Yes, if staff are told a month ahead", "No, it must ask each employee to vote"],e:"Before deciding on important changes, the employer must call for negotiation as early as possible. The decision must wait until the primary negotiations are done.",p:0,sv:null,law:"11 §",ca:"The duty to negotiate applies where the employer is bound by a collective agreement."},
+    {sc:"Continued: the union and the employer negotiate but do not agree.",q:"Who has the final word?",a:"The employer, after negotiating",w:["The union, since it did not agree", "A court, which decides the substance", "The union's central office"],e:"If there is no agreement, the employer can generally decide as it presented in the negotiation. The substance cannot be tried in court.",p:0,sv:null,law:null,cont:true},
+    {sc:"You are the union rep. The employer calls you to a negotiation about a reorganisation.",q:"What should the employer present?",a:"The plan and any alternatives",w:["Only the final decision", "Only the cost savings", "Nothing until after the decision"],e:"The employer should present the planned change and alternatives and give you time to think and discuss the proposal. A meeting for union members can be held if needed.",p:0,sv:null,law:null}
+  ]},
+{k:"AML",intro:"Unsafe workplaces and who to tell. The answers are based on advice from Swedish trade unions.",
+ src:[["Arbetsmiljö",UN+"om-arbetsmiljo"],["Begäran om arbetsmiljöåtgärder (6:6a)",UN+"begaran-om-arbetsmiljoatgarder-66a"],["Arbetsmiljö",LO+"arbetsmiljo"]],
+ qs:[
+ {sc:"A cable across a corridor has caused near-falls for weeks.",q:"Who should you go to first?",a:"Your closest manager",w:["Arbetsmiljöverket directly", "The Labour Court", "Nobody, it is not your job"],e:"Union advice says to go to your closest manager first with a work environment problem.",p:0,sv:"Om du upplever problem i arbetsmiljön ska du i första hand vända dig till din närmaste chef.",law:null},
+ {sc:"You told your manager about the cable weeks ago. Nothing has happened.",q:"What can you do next?",a:"Go to your safety representative",w:["Fix the problem yourself and say nothing", "Wait another year and hope it solves itself", "Resign from your job right away"],e:"If your manager takes no action, you can go to the safety representative. Your local union can also advise.",p:0,sv:null,law:null},
+ {sc:"You slip and nearly fall. You are not hurt.",q:"What do you do?",a:"Tell your manager right away",w:["Say nothing, because nobody was hurt this time", "Report it yourself to Arbetsmiljöverket and tell no one else", "Wait until it happens again before you tell anyone"],e:"A near-accident is called tillbud. Tell your manager so it can be dealt with. If it posed a serious danger to life or health, the employer must report it to Arbetsmiljöverket without delay.",p:1,sv:null,law:"3 kap. 3 a §"},
+ {sc:"As safety representative, you have asked for measures (6 kap. 6 a §).",q:"How fast should the employer answer?",a:"Without delay, within a reasonable time",w:["Within 24 hours of receiving the request", "Within one year of receiving the request", "The employer does not have to answer at all"],e:"The law sets no number of days. The employer must confirm receipt in writing right away and answer without delay. Unions often see about 14 days as reasonable. If nothing happens within a reasonable time, you can ask Arbetsmiljöverket to step in.",p:1,sv:"utan dröjsmål",law:"6 kap. 6 a §"},
+ {sc:"You are a safety representative. A machine is leaking gas and there is an immediate, serious danger to life.",q:"What can you do?",a:"Stop the work, telling the employer if time allows",w:["Write a report and hand it in on Monday", "Ask the employer for a written permit first", "Nothing, because only Arbetsmiljöverket can stop work"],e:"Under 6 kap. 7 § a safety representative can stop work that involves immediate, serious danger.",p:1,sv:"omedelbar, allvarlig fara",law:"6 kap. 7 §"},
+    {sc:"Your workplace has four employees and nobody has been appointed as safety representative. A machine guard is broken.",q:"Does the law require a safety representative here?",a:"No, only from five employees",w:["Yes, every workplace needs one", "Yes, from two workers", "Only if the employer agrees"],e:"A skyddsombud is required from five regularly employed workers. You can still raise the problem with your manager.",p:0,sv:null,law:"6 kap. 2 §",ca:"A local union with a collective agreement appoints the safety representative."},
+    {sc:"Continued: you told your manager. Nothing happens, and there is no local union.",q:"Whom can you contact?",a:"Your trade union's legal advisers",w:["Nobody, you must just wait it out", "Your employer's own lawyer", "A journalist at a local paper"],e:"Without a safety representative or local union, your trade union's advisers can tell you what to do next, for example about contacting Arbetsmiljöverket.",p:2,sv:null,law:null,cont:true},
+    {sc:"Your workplace has a digital system for reporting near-misses (tillbud).",q:"When should you use it?",a:"For every near-miss",w:["Only after someone is injured", "Only if the manager asks you to", "Never, the manager reports everything"],e:"Report near-misses to your manager right away. Many workplaces have digital systems for this.",p:0,sv:null,law:null}
+  ]},
+{k:"SEM",intro:"Planning, changing and cancelling leave. The answers are based on advice from Swedish trade unions.",
+ src:[["Så kan du ta ut din semester",UN+"ta-ut-din-semester"],["Att avbryta eller ändra semestern",UN+"att-avbryta-eller-andra-semestern"],["Allt du behöver veta om semester",SI+"semester/"]],
+ qs:[
+ {sc:"You want four weeks in a row in July. You and your manager cannot agree on the timing.",q:"Who decides when you take your leave?",a:"The employer, if you cannot agree",w:["You decide alone, because it is your leave", "The union decides on your behalf", "Nobody, and you lose the leave"],e:"You have the right to four consecutive weeks between June and August. Timing is up to the employer if you cannot agree.",p:0,sv:"är det arbetsgivaren som bestämmer över förläggningen av semestern",law:"12 §"},
+ {sc:"Your leave starts Monday. On Friday your manager orders you to cancel it because of an unforeseen crisis.",q:"Can you refuse?",a:"No, but the employer needs very strong reasons",w:["Yes, you may always refuse an order like that", "Yes, but only if you have already paid for a trip", "No, and the employer does not need any reason"],e:"Strong reasons mean something unforeseen that the whole company depends on. If there are none, you can ask your local union. If there is no local union, ask your trade union's legal advisers.",p:1,sv:"Du kan inte neka om din chef beordrar dig att avbryta din semester.",law:null},
+ {sc:"Your leave is cancelled by the employer. You had a prepaid trip.",q:"What can you expect?",a:"Your days back and your extra costs covered",w:["Double pay as compensation for the trouble", "Nothing at all, since the employer decided", "Only the leave days back, but never the costs"],e:"You are not entitled to extra compensation for being called in, but you should get your costs covered.",p:1,sv:null,law:null},
+ {sc:"The employer closes the workplace over Christmas. You have no paid leave days left.",q:"Can you be forced to take unpaid or saved leave?",a:"No, you get work or paid time off",w:["Yes, unpaid leave is allowed over holidays", "Yes, your saved days are used up first", "Yes, if you are told a week in advance"],e:"You can say no to unpaid leave days (8 §), and saved days are taken in the year you choose unless you agree otherwise (20 §). If you are available but get no work, the employer generally still has to pay you.",p:0,sv:null,law:"8 §"},
+ {sc:"A friend says you get four weeks of holiday. You check the Annual Leave Act.",q:"How much leave per leave year and how much must be in summer?",a:"Five weeks, four of them in a row in June–August",w:["Four weeks, all of them in the summer", "Six weeks, with three of them taken in the summer", "Five weeks, all of them in July"],e:"Collective agreements and employment contracts can give more days.",p:0,sv:"fyra veckors sammanhängande semester under juni – augusti",law:null,ca:"A collective agreement or contract can give more days or different timing."},
+    {sc:"You fall ill on the third day of your planned leave and tell your employer at once.",q:"Do the sick days count as leave days?",a:"No, if you report them right away",w:["Yes, sick days always count as leave", "Only if you have a medical certificate", "Only in the first week"],e:"Sick days do not count as leave days if you report them without delay. Unused days are usually rescheduled.",p:2,sv:null,law:"15 §"},
+    {sc:"Continued: you are sick for nine days in a row.",q:"What does your employer expect?",a:"A medical certificate",w:["Nothing, leave rules cover it", "A letter from your union", "A note from a colleague"],e:"A medical certificate is needed for absences over seven days.",p:2,sv:null,law:null,cont:true},
+    {sc:"Your manager phones you on holiday and asks you to answer work emails.",q:"Do you have to?",a:"No, you do not have to be reachable",w:["Yes, managers can always call you", "Yes, but only in the evening", "Yes, if the email is short"],e:"You have the right to be fully free from work during leave and need not be reachable or on standby.",p:2,sv:null,law:null}
+  ]},
+{k:"DL",intro:"Harassment and discrimination: what you do and what the employer must do. The answers are based on advice from Swedish trade unions.",
+ src:[["Råd om du känner dig trakasserad",UN+"rad-om-du-kanner-dig-trakasserad"],["Diskriminering på jobbet och ansvar",UN+"diskriminering-pa-jobbet"]],
+ qs:[
+ {sc:"A colleague keeps making jokes about your gender. You feel offended.",q:"If you feel it is possible, what is a good first step?",a:"Say clearly that you feel offended",w:["Laugh along and hope that it stops by itself", "Report it to the police at once", "Wait six months to see if it continues"],e:"You decide whether you feel harassed. Harassment can be physical, verbal or non-verbal.",p:0,sv:"säg ifrån direkt när du känner dig kränkt",law:null},
+ {sc:"The jokes continue. You decide to keep notes.",q:"What should you write down?",a:"What happened, when, and any witnesses",w:["Only how you felt about it afterwards", "Only the name of the colleague involved", "Nothing, because notes are never useful"],e:"Union advice is to note what happened, when, and whether there were witnesses.",p:0,sv:null,law:null},
+ {sc:"You tell your manager about the harassment.",q:"What must the employer do?",a:"Investigate and take measures to stop it",w:["Wait for you to repeat the complaint a second time", "Move you to another team and consider it settled", "Do nothing unless there is hard proof"],e:"Under the Discrimination Act the employer must investigate to find out what happened and what must be done to stop it.",p:0,sv:null,law:"2 kap. 3 §"},
+ {sc:"You want support from your union at work.",q:"What can your union representative ask of the employer?",a:"To negotiate and demand measures",w:["To have the colleague fired the same day", "To pay you a fine as compensation", "Nothing, since a union rep cannot act in such cases"],e:"Your local union, workplace rep or work environment rep can support and, if needed, represent you.",p:0,sv:null,law:null,ca:"The union's right to negotiate rests on the collective agreement."},
+ {sc:"The employer promises measures after the investigation.",q:"How do you make sure the measures actually work?",a:"Ask for minutes and agree on a follow-up",w:["Trust that it will work and say no more", "Wait a year and then see what has happened", "Drop the matter once the employer has promised measures"],e:"A follow-up shows whether the harassment has really stopped.",p:0,sv:null,law:null},
+    {sc:"A colleague posts a joke in the team chat about people of your ethnicity. You feel hurt.",q:"Who decides whether it is offensive?",a:"The person who feels hurt",w:["The colleague who posted it", "The manager alone", "A majority of the team"],e:"Whether something is offensive is up to the person affected.",p:1,sv:null,law:null},
+    {sc:"Continued: you tell your employer.",q:"What should the employer have in place?",a:"An anti-harassment policy",w:["A rule that complaints wait a month", "A list of colleagues who may joke", "Nothing, it is up to staff"],e:"The employer must adopt a policy against harassment and discrimination and set up routines for handling incidents.",p:1,sv:null,law:null,cont:true},
+    {sc:"Your probationary employment ends right after you tell your employer you are pregnant.",q:"What might this be?",a:"Discrimination",w:["Nothing, probation can end any time", "An inspection by the union", "A routine pay review"],e:"Ending a probationary employment after a pregnancy is announced is an example of discrimination. Contact your union.",p:1,sv:null,law:null}
+  ]},
+{k:"FTL",intro:"Rights of a union representative at work. The answers are based on advice from Swedish trade unions.",
+ src:[["Tid för fackligt arbete",UN+"facklig-tid"]],
+ qs:[
+ {sc:"You have just been elected union representative at your workplace.",q:"Which conditions apply for paid union time under the law?",a:"An agreement, an election and notice",w:["Only that you are a member of the union", "Only that your manager approves of the union", "Only that you work full time at the workplace"],e:"Union advice lists these four conditions for paid union time under the Förtroendemannalagen.",p:0,sv:null,law:null,ca:"Paid union time under the law depends on a collective agreement."},
+ {sc:"You wonder how many hours a week you may spend on union work.",q:"How much union time are you entitled to?",a:"What you need, with no fixed limit",w:["Exactly eight hours every week for every rep", "Never more than one hour per week", "As much as you like, without any limit"],e:"The law gives the leave the duties need, as long as it is reasonable for the workplace. Scope and timing are agreed with the local union (6 §). Smaller workplaces generally need less.",p:0,sv:"Det finns inga fasta mallar eller nyckeltal för att bedöma vilken ledighet som kan vara tillräcklig.",law:null},
+ {sc:"You want to attend a union course.",q:"What are you entitled to?",a:"Leave for a course relevant to your role",w:["No right to any leave for courses at all", "Unpaid leave only, whatever the course", "Leave only if the employer arranges the course itself"],e:"A course marked F lets you attend with pay maintained under the Förtroendemannalagen.",p:0,sv:null,law:null},
+ {sc:"Your workplace has no collective agreement. You were elected as union rep anyway.",q:"Do you have the same right to paid union time?",a:"No, a collective agreement is required",w:["Yes, the law always gives it to every rep", "Yes, if you ask your manager politely", "Yes, but only for half of the time"],e:"Ask your local union what other support is available. If there is no local union, ask your trade union's legal advisers.",p:0,sv:null,law:null,ca:"No collective agreement means the Act's paid union time does not apply in the same way."},
+ {sc:"You are newly elected and unsure how to arrange your union time with the employer.",q:"What is a sensible way to start?",a:"Learn the role and agree how to meet the employer",w:["Wait until the employer asks you to start", "Skip the training, since it is not needed", "Do all your union work outside your working hours"],e:"Unions offer an action-plan template for arranging union time.",p:0,sv:null,law:null},
+    {sc:"You want to book a negotiation meeting during work hours.",q:"Is preparing and holding negotiations paid union time?",a:"Yes, it is paid union time",w:["No, only courses are paid", "No, only meetings after work", "Yes, but only once a year"],e:"Preparing and holding negotiations, board meetings and meetings for union members are paid union activities.",p:0,sv:null,law:null,ca:"Paid union time under the law depends on a collective agreement."},
+    {sc:"Continued: you want to agree how union time is organised.",q:"When should you agree the structure with the employer?",a:"Early, ideally right away",w:["After the first dispute", "Only when the employer asks", "Once a year"],e:"Set the structure for meetings and union time with the employer from the start. An action-plan template can help.",p:0,sv:null,law:null,cont:true},
+    {sc:"Your union offers an F-marked course related to your role.",q:"How is your pay handled during the course?",a:"You keep your pay",w:["Unpaid leave only", "Paid by the union only", "You use your leave days"],e:"F-marked courses are attended with retained pay under the representatives' law.",p:0,sv:null,law:null,ca:"Paid union time under the law depends on a collective agreement."}
+  ]}
+];
+
+var C3={
+"ATL": {
+"intro": "The words you meet most often when talking about working hours.",
+"qs": [
+{
+"q": "What does övertid mean?",
+"a": "Work beyond normal hours",
+"w": [
+"Night work",
+"Time spent on an unpaid break",
+"Work done during a holiday"
+],
+"e": "Övertid is work beyond ordinary working time. General overtime is capped at 200 hours per calendar year.",
+"s": "8 §",
+"sv": null,
+"eq": null,
+"t": "Övertid",
+"en": "Overtime"
+},
+{
+"q": "Which Swedish word means the daily rest of at least 11 hours?",
+"a": "Dygnsvila",
+"w": [
+"Veckovila",
+"Jourtid",
+"Nattarbete"
+],
+"e": "Dygnsvila is at least 11 continuous hours of rest in every 24 hours.",
+"s": "13 §",
+"sv": null,
+"eq": null,
+"t": "Dygnsvila",
+"en": "Daily rest (11 hours)"
+},
+{
+"q": "What is veckovila?",
+"a": "Rest of 36 hours in a row each week",
+"w": [
+"A rest of 11 hours in a row each day",
+"A short pause during the working day",
+"A holiday week once every year"
+],
+"e": "Veckovila is weekly rest: at least 36 continuous hours in every seven days.",
+"s": "14 §",
+"sv": null,
+"eq": null,
+"t": "Veckovila",
+"en": "Weekly rest (36 hours)"
+},
+{
+"q": "What is a rast?",
+"a": "A break during the working day",
+"w": [
+"A period of on-call duty",
+"Extra overtime for special reasons",
+"A night shift"
+],
+"e": "A rast is a break. Work must be arranged so you do not work more than five hours without one.",
+"s": "15 §",
+"sv": null,
+"eq": null,
+"t": "Rast",
+"en": "Break"
+},
+{
+"q": "What is jourtid?",
+"a": "On-call time at the workplace",
+"w": [
+"Overtime at a higher rate",
+"Rest that you take after a night shift",
+"A schedule that is changed at short notice"
+],
+"e": "Jourtid is on-call duty at the workplace. The Act limits how much of it the employer may order.",
+"s": "6 §",
+"sv": null,
+"eq": null,
+"t": "Jourtid",
+"en": "On-call time at the workplace"
+},
+{
+"q": "What is extra övertid?",
+"a": "Overtime for special reasons, max 150 hours",
+"w": [
+"Overtime only allowed on weekends and holidays",
+"Overtime that has no upper limit at all",
+"Overtime that is only for part-time staff"
+],
+"e": "Extra övertid can be used for special reasons, on top of general overtime, up to 150 hours.",
+"s": "8 a §",
+"sv": null,
+"eq": null,
+"t": "Extra övertid",
+"en": "Extra overtime (up to 150 hours)"
+},
+{
+"q": "Which Swedish word means a break during the working day?",
+"a": "Rast",
+"w": [
+"Veckovila",
+"Dygnsvila",
+"Jourtid"
+],
+"e": "A rast is a break. Work must be arranged so you do not work more than five hours in a row without one.",
+"s": "15 §",
+"sv": null,
+"eq": null,
+"t": "Rast",
+"en": "Break"
+},
+{
+"q": "What does jour mean here? \"Under jourtiden ska du vara kvar på arbetsplatsen.\"",
+"a": "On call at the workplace",
+"w": [
+"Having a break at work",
+"Working from home",
+"Taking a day off"
+],
+"e": "Jourtid is on-call time at the workplace. The Act limits how much of it can be ordered.",
+"s": "6 §",
+"sv": null,
+"eq": null,
+"t": "Jourtid",
+"en": "On-call time at the workplace"
+},
+{
+"q": "A part-time employee works more than the agreed hours. What is the Swedish term for these extra hours?",
+"a": "Mertid",
+"w": [
+"Övertid",
+"Jourtid",
+"Dygnsvila"
+],
+"e": "Mertid is extra hours for part-time staff. Övertid is work beyond ordinary working time.",
+"s": "10 §",
+"sv": null,
+"eq": null,
+"t": "Mertid",
+"en": "Additional hours for part-time staff"
+}
+]
+},
+"LAS": {
+"intro": "The words you will see in a contract or a termination letter.",
+"qs": [
+{
+"q": "What is tillsvidareanställning?",
+"a": "Permanent, until further notice",
+"w": [
+"Trial employment",
+"Employment for one single project",
+"Employment as a temporary replacement"
+],
+"e": "Tillsvidareanställning is the default form of employment.",
+"s": "4 §",
+"sv": null,
+"eq": null,
+"t": "Tillsvidareanställning",
+"en": "Permanent employment"
+},
+{
+"q": "What is provanställning?",
+"a": "Trial employment, max six months",
+"w": [
+"Employment until further notice",
+"A short job as a temporary replacement",
+"Employment that ends at retirement age"
+],
+"e": "A provanställning is a trial period. It can last at most six months.",
+"s": "6 §",
+"sv": null,
+"eq": null,
+"t": "Provanställning",
+"en": "Probationary employment"
+},
+{
+"q": "What are sakliga skäl?",
+"a": "The grounds a termination must rest on",
+"w": [
+"A written warning given before termination",
+"The order in which staff are terminated",
+"The right to be hired again later"
+],
+"e": "Sakliga skäl are required for a termination by the employer, for example a shortage of work (arbetsbrist).",
+"s": "7 §",
+"sv": null,
+"eq": null,
+"t": "Sakliga skäl",
+"en": "Objective grounds"
+},
+{
+"q": "Which Swedish word means the time between notice and the last day of employment?",
+"a": "Uppsägningstid",
+"w": [
+"Turordning",
+"Företrädesrätt",
+"Varsel"
+],
+"e": "Uppsägningstid is the notice period. The minimum is one month.",
+"s": "11 §",
+"sv": null,
+"eq": null,
+"t": "Uppsägningstid",
+"en": "Notice period"
+},
+{
+"q": "What is turordning?",
+"a": "The order of termination",
+"w": [
+"A list of the agreed working hours",
+"The order of leave",
+"The steps for signing a new contract"
+],
+"e": "Turordning is the order of termination. Employees with longer employment time generally have priority to stay.",
+"s": "22 §",
+"sv": null,
+"eq": null,
+"t": "Turordning",
+"en": "Order of termination"
+},
+{
+"q": "What is företrädesrätt till återanställning?",
+"a": "Priority to be rehired",
+"w": [
+"Priority to keep your job in a redundancy",
+"A longer notice period",
+"The right to choose your own hours"
+],
+"e": "After a redundancy you can have priority for rehiring. It runs until nine months after the employment ended.",
+"s": "25 §",
+"sv": null,
+"eq": null,
+"t": "Företrädesrätt till återanställning",
+"en": "Priority to be rehired"
+},
+{
+"q": "What is arbetsbrist?",
+"a": "Shortage of work",
+"w": [
+"A personal reason for termination",
+"A warning before termination",
+"Notice given by the employee"
+],
+"e": "Arbetsbrist, shortage of work, is one kind of objective ground for termination.",
+"s": "7 §",
+"sv": null,
+"eq": null,
+"t": "Arbetsbrist",
+"en": "Shortage of work"
+},
+{
+"q": "Before an ordinary termination for personal reasons, the employer must warn you two weeks ahead. What is that warning called?",
+"a": "Varsel",
+"w": [
+"Uppsägningstid",
+"Turordning",
+"Provanställning"
+],
+"e": "A varsel is the advance warning. The uppsägningstid is the notice period after the termination.",
+"s": "30 §",
+"sv": null,
+"eq": null,
+"t": "Varsel",
+"en": "Advance warning"
+},
+{
+"q": "What does this mean? \"Uppsägningen saknar saklig grund.\"",
+"a": "It has no valid reason",
+"w": [
+"The termination is in writing",
+"The notice is too long",
+"The union has agreed to it"
+],
+"e": "Saklig grund means objective grounds. Without them a termination is not valid.",
+"s": "7 §",
+"sv": null,
+"eq": null,
+"t": "Saklig grund",
+"en": "Objective ground"
+}
+]
+},
+"MBL": {
+"intro": "The words behind unions, negotiations and industrial action.",
+"qs": [
+{
+"q": "What is föreningsrätt?",
+"a": "The right to belong to a union",
+"w": [
+"The right to a collective agreement",
+"The right to strike",
+"The right to choose your own manager"
+],
+"e": "Föreningsrätt is the right of employers and employees to belong to an organisation.",
+"s": "7 §",
+"sv": null,
+"eq": null,
+"t": "Föreningsrätt",
+"en": "Right of association"
+},
+{
+"q": "What is a kollektivavtal?",
+"a": "A written deal between employers and a union",
+"w": [
+"A contract between you and your manager",
+"A law that has been passed by the Riksdag",
+"A rule set by the employer on its own"
+],
+"e": "A kollektivavtal is a written agreement between an employer or employers' organisation and an employees' organisation.",
+"s": "23 §",
+"sv": null,
+"eq": null,
+"t": "Kollektivavtal",
+"en": "Collective agreement"
+},
+{
+"q": "What is fredsplikt?",
+"a": "A duty not to strike in listed situations",
+"w": [
+"A duty to work overtime in a crisis",
+"A ban on joining a union of your choice",
+"A duty to accept every single employer decision"
+],
+"e": "Fredsplikt is the peace obligation. It applies to those bound by a collective agreement.",
+"s": "41 §",
+"sv": null,
+"eq": null,
+"t": "Fredsplikt",
+"en": "Peace obligation"
+},
+{
+"q": "What is primär förhandlingsskyldighet?",
+"a": "A duty to negotiate before big changes",
+"w": [
+"The union's duty to accept every change",
+"The employee's duty to report to a manager",
+"A duty to publish the pay of all staff"
+],
+"e": "The employer must call for negotiation on its own initiative before deciding on a significant change.",
+"s": "11 §",
+"sv": null,
+"eq": null,
+"t": "Primär förhandlingsskyldighet",
+"en": "Duty to negotiate before big changes"
+},
+{
+"q": "What is Medlingsinstitutet?",
+"a": "The authority that mediates in labour disputes",
+"w": [
+"The authority that supervises the work environment",
+"The court that tries labour disputes",
+"The authority that investigates discrimination"
+],
+"e": "Medlingsinstitutet is the National Mediation Office.",
+"s": "46 §",
+"sv": null,
+"eq": null,
+"t": "Medlingsinstitutet",
+"en": "National Mediation Office"
+},
+{
+"q": "Under the Co-Determination Act, what is a varsel om konflikt?",
+"a": "Notice of a planned strike or lockout",
+"w": [
+"A warning to an employee",
+"A notice that your leave has been granted",
+"A request to negotiate a planned change"
+],
+"e": "Notice of a strike, lockout or similar action must be given in writing, at least seven working days ahead.",
+"s": "45 §",
+"sv": null,
+"eq": null,
+"t": "Varsel om konflikt",
+"en": "Notice of industrial action"
+},
+{
+"q": "Which Swedish word means collective agreement?",
+"a": "Kollektivavtal",
+"w": [
+"Fredsplikt",
+"Föreningsrätt",
+"Medlingsinstitutet"
+],
+"e": "A kollektivavtal is a written agreement between an employer side and a union.",
+"s": "23 §",
+"sv": null,
+"eq": null,
+"t": "Kollektivavtal",
+"en": "Collective agreement"
+},
+{
+"q": "What is förhandlingsrätt?",
+"a": "The right to negotiate",
+"w": [
+"The right to strike",
+"The right to a pay rise",
+"The right to a court trial"
+],
+"e": "Förhandlingsrätt is the right of a union or employer to negotiate about their relationship with union members.",
+"s": "10 §",
+"sv": null,
+"eq": null,
+"t": "Förhandlingsrätt",
+"en": "Right to negotiate"
+},
+{
+"q": "What is informationsplikt?",
+"a": "The duty to inform the union",
+"w": [
+"The duty to publish all pay",
+"The duty to inform the police",
+"A union's duty to its union members"
+],
+"e": "An employer bound by a collective agreement must regularly inform the union about production, finances and personnel policy.",
+"s": "19 §",
+"sv": null,
+"eq": null,
+"t": "Informationsplikt",
+"en": "Duty to inform"
+}
+]
+},
+"AML": {
+"intro": "The words used to talk about safety and health at work.",
+"qs": [
+{
+"q": "What is a skyddsombud?",
+"a": "A worker rep for the work environment",
+"w": [
+"A manager who plans the work schedule",
+"An inspector who is sent by the authority",
+"A person who handles pay for all staff"
+],
+"e": "A skyddsombud is a safety representative. One is required from five regularly employed workers.",
+"s": "6 kap. 2 §",
+"sv": null,
+"eq": null,
+"t": "Skyddsombud",
+"en": "Safety representative"
+},
+{
+"q": "What is Arbetsmiljöverket?",
+"a": "The authority that supervises the Act",
+"w": [
+"The union that organises all workers",
+"The court that handles work disputes",
+"The employer's own internal safety team"
+],
+"e": "Arbetsmiljöverket is the Swedish Work Environment Authority.",
+"s": "7 kap. 1 §",
+"sv": null,
+"eq": null,
+"t": "Arbetsmiljöverket",
+"en": "Work Environment Authority"
+},
+{
+"q": "What is a skyddskommitté?",
+"a": "A joint employer and worker committee",
+"w": [
+"A group of managers who decide on pay",
+"A committee that appoints the company board",
+"A team of inspectors from the authority"
+],
+"e": "A skyddskommitté is a safety committee. It is required from fifty regularly employed workers.",
+"s": "6 kap. 8 §",
+"sv": null,
+"eq": null,
+"t": "Skyddskommitté",
+"en": "Safety committee"
+},
+{
+"q": "What is systematiskt arbetsmiljöarbete?",
+"a": "Planning work to prevent ill health",
+"w": [
+"A yearly check of premises",
+"Reporting accidents after they have happened",
+"Training new staff during their first week"
+],
+"e": "Systematic work environment management is a continuous duty for the employer.",
+"s": "3 kap. 2 a §",
+"sv": null,
+"eq": null,
+"t": "Systematiskt arbetsmiljöarbete",
+"en": "Systematic work environment management"
+},
+{
+"q": "In the Act, who is a minderårig?",
+"a": "A person who has not turned 18",
+"w": [
+"A person under 21",
+"A person under 16",
+"A new employee in the first year"
+],
+"e": "A minderårig is anyone under 18. Special protective rules apply to them.",
+"s": "5 kap. 1 §",
+"sv": null,
+"eq": null,
+"t": "Minderårig",
+"en": "Minor (under 18)"
+},
+{
+"q": "What does tillfredsställande arbetsmiljö mean?",
+"a": "A work environment suited to the work",
+"w": [
+"A workplace with no risks",
+"A work environment that the union has approved",
+"A work environment that each worker decides"
+],
+"e": "The Act requires the work environment to be satisfactory, given the nature of the work and social and technical development.",
+"s": "2 kap. 1 §",
+"sv": null,
+"eq": null,
+"t": "Tillfredsställande arbetsmiljö",
+"en": "Satisfactory work environment"
+},
+{
+"q": "Which Swedish word means safety representative?",
+"a": "Skyddsombud",
+"w": [
+"Skyddskommitté",
+"Arbetsgivare",
+"Arbetsmiljöverket"
+],
+"e": "A skyddsombud is a safety representative who looks after the work environment.",
+"s": "6 kap. 2 §",
+"sv": null,
+"eq": null,
+"t": "Skyddsombud",
+"en": "Safety representative"
+},
+{
+"q": "What is a tillbud?",
+"a": "A near-accident",
+"w": [
+"A fine from the authority",
+"An order to stop work",
+"A serious injury"
+],
+"e": "A tillbud is a near-accident. Serious near-misses must be reported to the authority without delay.",
+"s": "3 kap. 3 a §",
+"sv": null,
+"eq": null,
+"t": "Tillbud",
+"en": "Near-accident"
+},
+{
+"q": "What does this mean? \"Skyddsombudet avbryter arbetet.\"",
+"a": "The safety representative stops the work",
+"w": [
+"The safety representative starts the work",
+"The employer stops the work",
+"The authority closes the workplace"
+],
+"e": "A skyddsombud can stop work that poses immediate, serious danger to life or health.",
+"s": "6 kap. 7 §",
+"sv": null,
+"eq": null,
+"t": "Avbryta arbetet",
+"en": "Stop the work"
+}
+]
+},
+"SEM": {
+"intro": "The words you will meet on a payslip or in a leave request.",
+"qs": [
+{
+"q": "What is semesterår?",
+"a": "The leave year, from 1 April to 31 March",
+"w": [
+"The calendar year, from 1 January to 31 December",
+"The school year, from August to June",
+"The financial year, from July to June"
+],
+"e": "The leave year is 1 April to 31 March.",
+"s": "3 §",
+"sv": null,
+"eq": null,
+"t": "Semesterår",
+"en": "Leave year"
+},
+{
+"q": "What is procentregeln?",
+"a": "Holiday pay of 12 percent of earnings",
+"w": [
+"12 days of extra leave",
+"A rule that gives you a 12 percent raise",
+"A rule that cuts your pay by 12 percent"
+],
+"e": "The percentage rule is one way to work out holiday pay.",
+"s": "16 b §",
+"sv": null,
+"eq": null,
+"t": "Procentregeln",
+"en": "Percentage rule"
+},
+{
+"q": "What is sammanhängande semester?",
+"a": "One block of leave, four weeks in summer",
+"w": [
+"Leave that is taken one single day at a time",
+"Leave that is paid for by the union",
+"Leave that can only be taken in winter"
+],
+"e": "Unless otherwise agreed, you can get at least four weeks in a row in June to August.",
+"s": "12 §",
+"sv": null,
+"eq": null,
+"t": "Sammanhängande semester",
+"en": "Consecutive leave"
+},
+{
+"q": "What are sparade semesterdagar?",
+"a": "Leave days kept to take within five years",
+"w": [
+"Leave days that are paid out every month",
+"Leave days that are borrowed from next year",
+"Leave days that are given for sick time"
+],
+"e": "Only paid leave days above 20 can be saved. Saved days must be taken within five years after the leave year they were saved.",
+"s": "18 §",
+"sv": null,
+"eq": null,
+"t": "Sparade semesterdagar",
+"en": "Saved leave days"
+},
+{
+"q": "What is semesterersättning?",
+"a": "Pay instead of leave when a job ends",
+"w": [
+"A bonus for working during a holiday",
+"Pay for sick days that fall in your leave",
+"A fee for cancelling your planned leave"
+],
+"e": "If employment ends before earned holiday pay has been paid, you get holiday compensation.",
+"s": "30 §",
+"sv": null,
+"eq": null,
+"t": "Semesterersättning",
+"en": "Holiday compensation"
+},
+{
+"q": "What is an underrättelse about leave?",
+"a": "Notice of when your leave is set",
+"w": [
+"A sick leave request",
+"A rule on how many days you earn each year",
+"A report on your leave from the union"
+],
+"e": "If leave is scheduled other than by agreement, the notice must come at least two months before the leave begins.",
+"s": "11 §",
+"sv": null,
+"eq": null,
+"t": "Underrättelse",
+"en": "Notice of leave dates"
+},
+{
+"q": "Which Swedish word means holiday pay?",
+"a": "Semesterlön",
+"w": [
+"Semesterersättning",
+"Semesterår",
+"Procentregeln"
+],
+"e": "Semesterlön is pay during leave. Semesterersättning is paid instead when employment ends.",
+"s": "16 b §",
+"sv": null,
+"eq": null,
+"t": "Semesterlön",
+"en": "Holiday pay"
+},
+{
+"q": "What is the intjänandeår?",
+"a": "The year you earn leave",
+"w": [
+"The year when you take leave",
+"The year when you save days",
+"The year when you start a job"
+],
+"e": "The intjänandeår, or earning year, is the year before the leave year.",
+"s": "3 §",
+"sv": null,
+"eq": null,
+"t": "Intjänandeår",
+"en": "Earning year"
+},
+{
+"q": "What does it mean to avstå from unpaid leave days?",
+"a": "To waive them",
+"w": [
+"To take them",
+"To save them",
+"To sell them"
+],
+"e": "You can waive unpaid leave days, but generally not once they are scheduled on your own wishes.",
+"s": "8 §",
+"sv": null,
+"eq": null,
+"t": "Avstå",
+"en": "To waive"
+}
+]
+},
+"DL": {
+"intro": "The words used when talking about discrimination and your rights.",
+"qs": [
+{
+"q": "What are diskrimineringsgrunder?",
+"a": "The seven protected characteristics",
+"w": [
+"The seven steps for making a complaint",
+"Seven kinds of damages",
+"The seven authorities that enforce the Act"
+],
+"e": "The Act lists seven grounds of discrimination.",
+"s": "1 kap. 1 §",
+"sv": null,
+"eq": null,
+"t": "Diskrimineringsgrunder",
+"en": "Grounds of discrimination"
+},
+{
+"q": "What does trakasserier mean?",
+"a": "Conduct that violates dignity",
+"w": [
+"A disagreement about your pay level",
+"Normal criticism of work",
+"A late payment of your monthly salary"
+],
+"e": "Trakasserier is harassment. It is a form of discrimination under the Act.",
+"s": "1 kap. 4 §",
+"sv": null,
+"eq": null,
+"t": "Trakasserier",
+"en": "Harassment"
+},
+{
+"q": "What is indirekt diskriminering?",
+"a": "A neutral rule that harms a protected group",
+"w": [
+"A rule that names one group in the open",
+"A discrimination case reported by someone else",
+"A pay calculation error"
+],
+"e": "Indirect discrimination can happen even when a rule looks neutral.",
+"s": "1 kap. 4 §",
+"sv": null,
+"eq": null,
+"t": "Indirekt diskriminering",
+"en": "Indirect discrimination"
+},
+{
+"q": "What are repressalier?",
+"a": "Punishment for reporting a problem",
+"w": [
+"A reward for good work",
+"A pay review that takes place each year",
+"A routine warning letter sent to all staff"
+],
+"e": "The employer may not retaliate against an employee who reports or takes part in a case.",
+"s": "2 kap. 18 §",
+"sv": null,
+"eq": null,
+"t": "Repressalier",
+"en": "Reprisals"
+},
+{
+"q": "What is utredningsskyldighet?",
+"a": "A duty to investigate harassment",
+"w": [
+"A duty to prove the case",
+"The authority's duty to visit the workplace",
+"The union's duty to represent all union members"
+],
+"e": "When an employee says they have been harassed, the employer must investigate and take reasonable measures.",
+"s": "2 kap. 3 §",
+"sv": null,
+"eq": null,
+"t": "Utredningsskyldighet",
+"en": "Duty to investigate"
+},
+{
+"q": "What is diskrimineringsersättning?",
+"a": "Compensation for breaking the Act",
+"w": [
+"A grant paid for equality projects at work",
+"A complaint fee",
+"A yearly payment that comes from the union"
+],
+"e": "Discrimination compensation is paid for the violation of dignity that discrimination causes.",
+"s": "5 kap. 1 §",
+"sv": null,
+"eq": null,
+"t": "Diskrimineringsersättning",
+"en": "Discrimination compensation"
+},
+{
+"q": "Which Swedish word means sexual harassment?",
+"a": "Sexuella trakasserier",
+"w": [
+"Trakasserier",
+"Repressalier",
+"Indirekt diskriminering"
+],
+"e": "Sexuella trakasserier is sexual conduct that violates someone's dignity.",
+"s": "1 kap. 4 §",
+"sv": null,
+"eq": null,
+"t": "Sexuella trakasserier",
+"en": "Sexual harassment"
+},
+{
+"q": "What is direkt diskriminering?",
+"a": "Worse treatment due to a ground",
+"w": [
+"A neutral rule that harms everyone",
+"Punishment for reporting a problem",
+"Fair criticism of your work"
+],
+"e": "Direct discrimination is less favourable treatment than others get in a comparable situation, linked to a ground.",
+"s": "1 kap. 4 §",
+"sv": null,
+"eq": null,
+"t": "Direkt diskriminering",
+"en": "Direct discrimination"
+},
+{
+"q": "What is bristande tillgänglighet?",
+"a": "No adjustments for a disability",
+"w": [
+"Harassment by a colleague at work",
+"A late payment of salary",
+"A closed office building"
+],
+"e": "Failing to take reasonable accessibility measures for a person with a disability is a form of discrimination.",
+"s": "1 kap. 4 §",
+"sv": null,
+"eq": null,
+"t": "Bristande tillgänglighet",
+"en": "Inaccessibility"
+}
+]
+},
+"FTL": {
+"intro": "The words used for union representatives and their rights.",
+"qs": [
+{
+"q": "What is a facklig förtroendeman?",
+"a": "A rep appointed by a union",
+"w": [
+"A manager",
+"A safety inspector sent by the authority",
+"A person who negotiates for the company"
+],
+"e": "The Act protects representatives appointed by a union.",
+"s": "1 §",
+"sv": null,
+"eq": null,
+"t": "Facklig förtroendeman",
+"en": "Union representative"
+},
+{
+"q": "What does försämrade arbetsförhållanden mean?",
+"a": "Worse working conditions",
+"w": [
+"A shorter notice period",
+"A larger salary",
+"A change of job title only"
+],
+"e": "A representative may not be given worse working conditions because of their union work.",
+"s": "4 §",
+"sv": null,
+"eq": null,
+"t": "Försämrade arbetsförhållanden",
+"en": "Worse working conditions"
+},
+{
+"q": "What are anställningsförmåner?",
+"a": "Job benefits kept on union leave",
+"w": [
+"Gifts from the union",
+"Extra pay for overtime work and nothing else",
+"Rights that end the day union leave starts"
+],
+"e": "A representative on leave for union work at their own workplace keeps their employment benefits.",
+"s": "7 §",
+"sv": null,
+"eq": null,
+"t": "Anställningsförmåner",
+"en": "Employment benefits"
+},
+{
+"q": "What is företräde in a redundancy?",
+"a": "Priority to keep working",
+"w": [
+"Leave with extra pay",
+"A right to choose a new manager yourself",
+"A duty to train the other employees first"
+],
+"e": "A representative can get extra protection in a redundancy when it is of special importance for union activity.",
+"s": "8 §",
+"sv": null,
+"eq": null,
+"t": "Företräde",
+"en": "Priority to keep working"
+},
+{
+"q": "What is skadestånd?",
+"a": "Money paid for harm caused",
+"w": [
+"A tax on union dues",
+"A fee that you pay for joining a union",
+"A bonus that is paid by the employer"
+],
+"e": "A damages claim under the Act must be notified within four months.",
+"s": "11 §",
+"sv": null,
+"eq": null,
+"t": "Skadestånd",
+"en": "Damages"
+},
+{
+"q": "What does it mean if an agreement is ogiltig?",
+"a": "It is void and has no effect",
+"w": [
+"It is valid but must be renewed each year",
+"It is valid for a year",
+"It only applies to union members at work"
+],
+"e": "An individual agreement that reduces the representative's rights under the Act is void to that extent.",
+"s": "2 §",
+"sv": null,
+"eq": null,
+"t": "Ogiltig",
+"en": "Void"
+},
+{
+"q": "What is facklig tid?",
+"a": "Time off for union duties",
+"w": [
+"A union's yearly meeting",
+"The time a strike lasts",
+"A union's notice period"
+],
+"e": "Facklig tid is the time a representative needs for union duties. It must be reasonable and agreed with the local union.",
+"s": "6 §",
+"sv": null,
+"eq": null,
+"t": "Facklig tid",
+"en": "Union time"
+},
+{
+"q": "Before changing a representative's conditions, the employer gives the union two weeks' notice. What is it called?",
+"a": "Varsel",
+"w": [
+"Uppsägning",
+"Förhandling",
+"Skadestånd"
+],
+"e": "The employer must give the local union at least two weeks' varsel before changing a representative's conditions.",
+"s": "5 §",
+"sv": null,
+"eq": null,
+"t": "Varsel",
+"en": "Advance notice"
+},
+{
+"q": "What does this mean? \"Ledigheten ska vara skälig.\"",
+"a": "The leave must be reasonable",
+"w": [
+"The leave must be unpaid",
+"The leave must be in writing",
+"The union must approve it"
+],
+"e": "A representative may take the leave the duties require. It must be reasonable.",
+"s": "6 §",
+"sv": null,
+"eq": null,
+"t": "Skälig",
+"en": "Reasonable"
+}
+]
+}
+};
+ACTS.forEach(function(a){a.n=10;});
+var ACTS3=ACTS.map(function(a){var c=C3[a.k];var o={};for(var p in a){o[p]=a[p];}o.ch3=true;o.n=6;o.pm=4;o.full=a.full+": key terms";o.intro=c.intro;o.qs=c.qs;return o;});
+ACTS3.forEach(function(a){a.qs.forEach(function(q){if(!q.t){return;}var have=GLOSS.some(function(g){return g[0].toLowerCase()===q.t.toLowerCase();});if(!have){GLOSS.push([q.t,q.en,q.e,a.k,q.s]);}});});
+GLOSS.sort(function(x,y){return x[0].localeCompare(y[0],"sv");});
+var ACTS2=C2.map(function(c){
+  var base=ACTS.filter(function(a){return a.k===c.k;})[0];
+  return {k:c.k,ch2:true,n:5,pm:3,title:base.title,full:base.full+": what would you do?",sfs:base.sfs,r:base.r,intro:c.intro,srcs:c.src,
+    qs:c.qs.map(function(q){return {sc:q.sc,q:q.q,a:q.a,w:q.w,e:q.e,s:q.law||"",sv:q.sv,eq:null,si:q.p,ca:q.ca||null,law:q.law||null,cont:!!q.cont,d:q.d||null};})};
+});
+function fbSrc(a,q){
+  if(a.ch2){
+    var s=a.srcs[q.si]||a.srcs[0];
+    return (q.ca?'<p class="can"><b>Collective agreement:</b> '+q.ca+'</p>':'')+'<p class="srcline">Source: '+dom(s[1])+' (union advice) · '+lnk(s[0],s[1])+'</p><details class="srcd"><summary>Quote and details</summary>'+srcBlock2(a,q)+'</details>';
+  }
+  var gl=(a.ch3&&q.t)?'<p class="srcline">Glossary: <button class="lk" data-act="glossq">'+q.t+'</button></p>':'';
+  return gl+caNote(a,q.s)+'<p class="srcline">Source: '+a.title+' '+q.s+' · '+riksLink(a)+'</p><details class="srcd"><summary>Quote, translation and links</summary>'+srcBlock(a,q.s,q.sv,q.eq)+'</details>';
+}
+function cur(){return S.ch===3?ACTS3[S.m]:S.ch===2?ACTS2[S.m]:ACTS[S.m];}
+function bestArr(){return S.ch===3?P.best3:S.ch===2?P.best2:P.best;}
+function unlocked(){return true;}
+function done2(){return ACTS2.filter(function(a,i){var b=P.best2[i];return b!=null&&b>=passN(a);}).length;}
+function srcBlock2(a,q){
+  var s=a.srcs[q.si]||a.srcs[0];
+  var h='<div class="sb"><div class="sr"><span class="tg un">Union source, not official</span><span>'+dom(s[1])+': '+s[0]+' · '+lnk(dom(s[1]),s[1])+(q.sv?'<span class="qt" lang="sv">«'+q.sv+'»</span>':'')+'</span></div>';
+  if(q.law){h+='<div class="sr"><span class="tg">Swedish law</span><span>'+a.title+' '+q.law+' · '+riksLink(a)+'</span></div>';}
+  return h+'<div class="sr"><span class="tg un">Check</span><span>Your own collective agreement and employment contract may give different rules. Only the Swedish legal texts are official.</span></div></div>';
+}
+function actSrc2(a){
+  var h='<section class="actsrc"><div class="eyebrow">Sources for these situations</div>';
+  a.srcs.forEach(function(s){h+='<div class="sr"><span class="tg un">Union source, not official</span><span>'+dom(s[1])+': '+s[0]+' · '+lnk(dom(s[1]),s[1])+'</span></div>';});
+  return h+'<p class="note">The sources are Swedish trade unions. Their advice reflects their view and some of it may need a union membership to use fully. Last checked '+CHECKED+'.</p></section>';
+}
+
+
+/* ---------- Views ---------- */
+var RANKS=[["White belt",0,"#ffffff"],["Yellow belt",4,"#f2c200"],["Green belt",9,"#2f9e44"],["Brown belt",15,"#8b5a2b"],["Black belt",21,"#111111"]];
+function setsDone(arr,list){return list.filter(function(a,i){var b=arr[i];return b!=null&&b>=passN(a);}).length;}
+function punchCard(){
+  var d1=setsDone(P.best,ACTS),d2=setsDone(P.best2,ACTS2),d3=setsDone(P.best3,ACTS3);
+  var tot=d1+d2+d3,max=ACTS.length*3,r=0;
+  RANKS.forEach(function(x,i){if(tot>=x[1]){r=i;}});
+  var nx=RANKS[r+1];
+  var hint=nx?(nx[1]-tot)+' more '+((nx[1]-tot)===1?'set':'sets')+' to reach '+nx[0]+'.':'You have completed every set.';
+  function row(n,d){return '<li><span>'+n+'</span><b>'+d+' / 7</b></li>';}
+  return '<section class="punch prog" aria-label="Progress"><div class="punch-h"><span class="eyebrow">Your progress</span><span class="eyebrow">'+tot+' / '+max+' sets</span></div><div class="rank"><span class="eyebrow">Rank '+(r+1)+' of '+RANKS.length+'</span><strong><i class="belt" style="background:'+RANKS[r][2]+'" aria-hidden="true"></i>'+RANKS[r][0]+'</strong></div><div class="pbar" role="progressbar" aria-valuemin="0" aria-valuemax="'+max+'" aria-valuenow="'+tot+'" aria-label="Sets completed"><i style="width:'+Math.round(tot/max*100)+'%"></i></div><ul class="pch"><li><span>Chapter 1 · Acts</span><b>'+d1+' / 7</b></li><li><span>Chapter 2 · Situations</span><b>'+d2+' / 7</b></li><li><span>Chapter 3 · Terms</span><b>'+d3+' / 7</b></li></ul><p class="punch-f">'+hint+' Pass each set to complete it.</p></section>';
+}
+var SIZES=["100%","115%","130%"],SZ=0;
+try{var rs=localStorage.getItem("arbetsratt101.size");if(rs!==null&&SIZES[+rs]){SZ=+rs;}}catch(e){}
+function applySize(){document.documentElement.style.setProperty("--fs",SIZES[SZ]);}
+applySize();
+var SZN=["Normal","Large","Largest"];
+function aaBtn(){return '<button class="aa" data-act="sizecycle" aria-label="Change text size. Now '+SZN[SZ]+'. Tap for '+SZN[(SZ+1)%3]+'."><span aria-hidden="true">A<small>a</small></span><span class="aa-l" aria-hidden="true">'+SZN[SZ]+'</span></button>';}
+function topRow(left){return '<div class="toprow">'+left+aaBtn()+'</div>';}
+function sizeCtl(){
+  return '<div class="size" role="group" aria-label="Text size"><span>Text size</span>'+["A","A+","A++"].map(function(l,i){return '<button data-act="size" data-i="'+i+'" aria-pressed="'+(SZ===i)+'" aria-label="Text size '+(i+1)+' of 3">'+l+'</button>';}).join("")+'</div>';
+}
+function nextSet(){
+  var L=[[ACTS,P.best,1],[ACTS2,P.best2,2],[ACTS3,P.best3,3]];
+  for(var c=0;c<3;c++){for(var i=0;i<7;i++){var b=L[c][1][i];if(!(b!=null&&b>=passN(L[c][0][i]))){return {ch:L[c][2],i:i};}}}
+  return null;
+}
+function chap(id,title,sub,done,body,open){
+  return '<details class="chap" data-ch="'+id+'"'+(open?' open':'')+'><summary><div><div class="eyebrow">Chapter '+id+' · '+done+' / 7 done</div><h2 class="h2s">'+title+'</h2><p class="note">'+sub+'</p></div><span class="chev" aria-hidden="true">›</span></summary><div class="list">'+body+'</div></details>';
+}
+function home(){
+  var NX=nextSet();
+  function nb(ch,i,b,a){if(NX&&NX.ch===ch&&NX.i===i){return '<span class="badge nx">Next</span>';}return b==null?'<span class="badge">New</span>':(b>=passN(a)?'<span class="badge done">'+b+'/'+setN(a)+'</span>':'<span class="badge try">'+b+'/'+setN(a)+'</span>');}
+  function nc(ch,i){return (NX&&NX.ch===ch&&NX.i===i)?' next':'';}
+  var list=ACTS.map(function(a,i){
+    var b=P.best[i];
+    var badge=nb(1,i,b,a);
+    var src=a.en?"English: translation, non-official":"English: unofficial wording";
+    return '<button class="mod'+nc(1,i)+'" data-act="open" data-m="'+i+'"><span class="mod-n">'+(i+1)+'</span><span class="mod-b"><strong>'+a.full+'</strong><span class="mod-t">SFS '+a.sfs+'</span><span class="mod-t">'+src+'</span></span>'+badge+'</button>';
+  }).join("");
+  var open2=unlocked();
+  var list2=ACTS2.map(function(a,i){
+    var b=P.best2[i];
+    var badge=nb(2,i,b,a);
+    return '<button class="mod mod2'+nc(2,i)+'" data-act="'+(open2?"open2":"locked")+'" data-m="'+i+'"'+(open2?"":' aria-disabled="true"')+'><span class="mod-n">'+(open2?(i+1):LOCK)+'</span><span class="mod-b"><strong>'+a.title+'</strong><span class="mod-t">'+setN(a)+' situations</span></span>'+badge+'</button>';
+  }).join("");
+  var d1=ACTS.filter(function(a,i){var b=P.best[i];return b!=null&&b>=passN(a);}).length;
+  var op=NX?NX.ch:0;
+  var ch1=chap(1,"The seven acts","One set of questions per act, with sources.",d1,list,op===1);
+  var ch2=chap(2,"What would you do?","Real situations, with answers based on advice from Swedish trade unions.",done2(),list2,op===2);
+  var done3=ACTS3.filter(function(a,i){var b=P.best3[i];return b!=null&&b>=passN(a);}).length;
+  var list3=ACTS3.map(function(a,i){
+    var b=P.best3[i];
+    var badge=nb(3,i,b,a);
+    return '<button class="mod'+nc(3,i)+'" data-act="open3" data-m="'+i+'"><span class="mod-n">'+(i+1)+'</span><span class="mod-b"><strong>'+a.title+'</strong><span class="mod-t">'+setN(a)+' key terms</span></span>'+badge+'</button>';
+  }).join("");
+  var ch3=chap(3,"Key terms","The Swedish words you will meet most often.",done3,list3,op===3);
+  setDock("");
+  return '<header><h1>Legal <em style="white-space:nowrap">Self-Defense</em> in a Swedish Working Environment</h1><p class="lede">Seven Swedish labour acts in three chapters. '+[ACTS,ACTS2,ACTS3].reduce(function(n,L){return n+L.reduce(function(m,a){return m+a.qs.length;},0);},0)+' questions.</p></header>'+
+    '<aside class="disc" aria-label="Disclaimer"><strong>Please check the facts yourself</strong>This app is learning material, not legal advice. If you doubt anything, check it against the sources provided. Only the Swedish legal texts are official.<span class="disc-p">If you are experiencing issues in your workplace, contact your trade union as soon as possible.</span></aside>'+
+    punchCard()+
+    ch1+ch2+ch3+'<button class="glass" data-act="help"><span class="glass-in"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 12 3 3M12 12 21 5M12 12l9 4M12 12l2 10M12 12 2 17M7.5 7.5 5 11M16.5 8.5l3 3M16 14l-1 4M7 14.5l2 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg><span><strong>In case of emergency, break glass</strong><small>Terminated, harassed, unsafe work, unpaid overtime or cancelled leave</small></span></span></button>'+'<section class="list" aria-label="More">'+
+    '<button class="mod" data-act="sources"><span class="mod-n">i</span><span class="mod-b"><strong>Sources and translations</strong><span class="mod-t">Links, status, amendments</span></span><span class="badge">Open</span></button>'+
+    '<button class="mod" data-act="gloss"><span class="mod-n">§</span><span class="mod-b"><strong>Glossary</strong><span class="mod-t">'+GLOSS.length+' Swedish terms</span></span><span class="badge">Open</span></button></section>'+
+    '<p class="note">Official sources: riksdagen.se, government.se and do.se. lagen.nu is linked as a private help and is not official.</p>'+
+    '<button class="btn sec'+(S.resetArm?' danger':'')+'" data-act="reset" style="width:100%">'+(S.resetArm?'Tap again to erase all progress':'Reset progress')+'</button>';
+}
+function pointsHtml(a){
+  return a.lesson.map(function(x){
+    return '<li class="pt"><div><h3>'+x.t+'</h3><div class="en" lang="sv">'+x.sv+'</div></div><p>'+x.d+'</p><details class="srcd"><summary>Sources and translation</summary>'+srcBlock(a,x.s,x.q||null,x.eq||null)+'</details></li>';
+  }).join("");
+}
+function lessonRaw(){
+  var a=cur();
+  if(a.ch2){
+    setDock('<button class="btn pri" data-act="start">Start · '+setN(a)+' situations</button>');
+    return topRow('<button class="back" data-act="home">← All acts</button>')+'<header><div class="eyebrow">Chapter 2 · Situation set '+(S.m+1)+' of 7</div><h2>'+a.full+'</h2><p class="lede" style="margin-top:8px">'+a.intro+'</p></header><div class="how"><strong>How this works</strong><p>You get '+setN(a)+' real-life situations. Choose what you would do. After each answer you see why, with the source. Score at least '+passN(a)+' to complete this set. The answers are based on advice from Swedish trade unions. It is advice, not an official source. Facts last checked '+CHECKED+'.</p></div><details class="actd"><summary>Sources for these situations</summary>'+actSrc2(a)+'</details>';
+  }
+  if(a.ch3){
+    setDock('<button class="btn pri" data-act="start">Start · '+setN(a)+' terms</button>');
+    return topRow('<button class="back" data-act="home">← All acts</button>')+'<header><div class="eyebrow">Chapter 3 · Terms set '+(S.m+1)+' of 7</div><h2>'+a.full+'</h2><p class="lede" style="margin-top:8px">'+a.intro+'</p></header><div class="how"><strong>How this works</strong><p>You get '+setN(a)+' questions about Swedish terms. After each answer you see the meaning and the section of the law. Score at least '+passN(a)+' to complete this set. The English meanings are plain explanations, not official translations. Facts last checked '+CHECKED+'.</p></div><details class="actd"><summary>Sources and translation for this act</summary>'+actSrc(a)+'</details>';
+  }
+  setDock('<button class="btn pri" data-act="start">Start quiz · '+setN(a)+' questions</button>');
+  return ''+topRow('<button class="back" data-act="home">← All acts</button>')+'<header><div class="eyebrow">Act '+(S.m+1)+' of 7 · SFS '+a.sfs+'</div><h2>'+a.full+'</h2><p class="lede" style="margin-top:8px">'+a.intro+'</p></header><div class="how"><strong>How this works</strong><p>You get '+setN(a)+' questions on this act. Answer first. After each answer you see the explanation, the section of the law and the source. Score at least '+passN(a)+' to complete this act. Facts last checked '+CHECKED+'.</p></div><details class="actd"><summary>Sources and translation for this act</summary>'+actSrc(a)+'</details>';
+}
+var CK={};try{CK=JSON.parse(localStorage.getItem("lsdswe.checks")||"{}")||{};}catch(ec){CK={};}
+var HOWSEEN=false;try{HOWSEEN=localStorage.getItem("lsdswe.how")==="1";}catch(eh){}
+function lesson(){
+  var a=cur(),h=lessonRaw();
+  if(HOWSEEN){var i=h.indexOf('<div class="how"><strong>How this works</strong><p>');if(i>=0){var j=h.indexOf('</p></div>',i);var hl='<div class="how"><strong>How this works</strong><p>'.length;h=h.slice(0,i)+'<details class="actd"><summary>How this works</summary><p>'+h.slice(i+hl,j)+'</p></details>'+h.slice(j+10);}}
+  else{HOWSEEN=true;try{localStorage.setItem("lsdswe.how","1");}catch(eh2){}}
+  if(!a.ch2&&!a.ch3){h+='<details class="actd"><summary>Read the key points first (optional)</summary><ul class="points" style="margin-top:10px">'+pointsHtml(a)+'</ul></details>';}
+  return h;
+}
+var NUMW={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,fifty:50};
+function numOf(s){
+  var m=s.match(/(\d{1,2}):(\d{2})/);if(m){return {v:+m[1]*60+(+m[2]),u:"time"};}
+  m=s.match(/(\d+(?:[.,]\d+)?)\s*(percent|%|[a-zåäö]+)?/i);
+  if(m){return {v:parseFloat(m[1].replace(",",".")),u:(m[2]||"").toLowerCase()};}
+  m=s.toLowerCase().match(/\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifty)\b\s*([a-zåäö]+)?/);
+  if(m){return {v:NUMW[m[1]],u:(m[2]||"")};}
+  return null;
+}
+function unitKey(u){u=u.replace(/s$/,"");if(u==="%"){u="percent";}if(u==="worker"||u==="employee"){u="person";}return u;}
+function whyWrong(q,pick,right){
+  var P=pick.trim(),C=right.trim();
+  if(/^(true|false)$/i.test(P)){return 'The statement is '+C.toLowerCase()+'.';}
+  if(/\bNOT\b/.test(q.q)){return 'That statement is correct, so it is not the answer.';}
+  var g=GLOSS.filter(function(x){return x[0].toLowerCase()===P.toLowerCase();})[0];
+  if(g){return '<span lang="sv">'+g[0]+'</span> means “'+g[1]+'”.';}
+  if(/^(yes|no)\b/i.test(P)||/^(yes|no)\b/i.test(C)){return '';}
+  if(/\d\s*(to|–|-)\s*\d/.test(P)||/\d\s*(to|–|-)\s*\d/.test(C)){return '';}
+  var a=numOf(P),b=numOf(C);
+  if(a&&b&&a.v!==b.v&&(a.u==="time"?b.u==="time":(unitKey(a.u)===unitKey(b.u)||!a.u||!b.u))){
+    if(a.u==="time"){return 'That is too '+(a.v<b.v?'early':'late')+'.';}
+    return 'That is too '+(a.v<b.v?'low':'high')+'.';
+  }
+  return '';
+}
+var ICON_OK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var ICON_NO='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>';
+function quiz(){
+  var q=S.run[S.qi];var a=q.act||cur();var answered=S.picked!=null;
+  var segs=S.run.map(function(_,i){
+    var c=i<S.qi?(S.marks[i]?"ok":"no"):(i===S.qi?"cur":"");
+    return '<i class="seg '+c+'"></i>';
+  }).join("");
+  var opts=q.o.map(function(o,i){
+    var c="opt",mark="ABCD".charAt(i),state="";
+    if(answered){
+      if(o.c){c+=" ok";mark="✓";state=" (correct answer)";}
+      else if(i===S.picked){c+=" no";mark="✕";state=" (your answer, wrong)";}
+      else{c+=" dim";}
+    }
+    return '<button class="'+c+'" data-act="pick" data-i="'+i+'"'+(answered?" disabled":"")+' aria-label="'+"ABCD".charAt(i)+': '+o.t.replace(/"/g,"&quot;")+state+'"><span class="L" aria-hidden="true">'+mark+'</span><span>'+o.t+'</span></button>';
+  }).join("");
+  var fb="";
+  if(answered){
+    var right=q.o[S.picked].c;
+    fb='<div class="fb '+(right?"ok":"no")+'" id="fb" role="status" tabindex="-1"><div class="fb-h"><span class="fb-ic" aria-hidden="true">'+(right?ICON_OK:ICON_NO)+'</span><strong>'+(right?"Correct":"Not quite")+'</strong></div>'+(right?'':'<p class="pick">You picked: <b>'+q.o[S.picked].t+'</b>. '+whyWrong(q,q.o[S.picked].t,q.o.filter(function(o){return o.c;})[0].t)+' The correct answer is: <b>'+q.o.filter(function(o){return o.c;})[0].t+'</b>.</p>')+'<p>'+q.e+'</p>'+fbSrc(a,q)+'</div>';
+    setDock('<button class="btn pri" data-act="next">'+(S.qi===S.run.length-1?"See result":"Next question")+'</button>');
+  }else{setDock("");}
+  return '<div class="qtop"><button class="back" data-act="leave" aria-label="'+(S.leaveArm?'Tap again to leave. Your answers in this set will be lost.':'Leave quiz')+'">'+(S.leaveArm?'Tap again to leave':'← Leave')+'</button><span class="qcount" aria-label="Question '+(S.qi+1)+' of '+S.run.length+'">'+(S.qi+1)+' / '+S.run.length+'</span>'+aaBtn()+'</div><div class="bars" aria-hidden="true">'+segs+'</div><div class="eyebrow">'+(a.ch2?"Chapter 2 · ":a.ch3?"Chapter 3 · ":"Chapter 1 · ")+a.title+'</div>'+(q.sc?'<p class="sc"><span class="eyebrow">Situation</span>'+q.sc+'</p>':"")+'<h2 class="q">'+q.q+'</h2><div class="opts" role="group" aria-label="Answers">'+opts+'</div>'+fb;
+}
+function learned(){
+  var ok=S.run.filter(function(r){return r.p!=null&&r.o[r.p].c;}).slice(0,3);
+  if(!ok.length){return "";}
+  return '<section class="learned"><div class="eyebrow">What you learned</div><ul class="ul">'+ok.map(function(r){var s=r.e.split(/(?<=\.)\s/)[0];return '<li>'+s+'</li>';}).join("")+'</ul></section>';
+}
+function review(){
+  var miss=S.run.filter(function(r){return r.p!=null&&!r.o[r.p].c;});
+  if(!miss.length){return learned();}
+  var items=miss.map(function(r){
+    var right=r.o.filter(function(o){return o.c;})[0].t;
+    return '<div><b>'+r.q+'</b><span>Your answer: '+r.o[r.p].t+'</span><span>Correct: '+right+'</span><span class="note">'+r.e+' ('+(r.act||cur()).title+(r.s?' '+r.s:'')+')</span></div>';
+  }).join("");
+  return learned()+'<details open><summary>Review '+miss.length+' missed '+(miss.length===1?"question":"questions")+'</summary><div class="rev">'+items+'</div></details><p><button class="lk" data-act="retrymiss">Practise only the missed '+(miss.length===1?"question":"questions")+'</button></p>';
+}
+function result(){
+  var a=cur();
+  if(S.practice){
+    var ps=S.marks.filter(Boolean).length,pn=S.run.length;
+    setDock('<button class="btn sec" data-act="retry">Full set</button><button class="btn pri" data-act="home">Home</button>');
+    return '<div class="score"><div class="score-t"><div class="eyebrow">Practice · '+a.title+'</div><div class="big">'+ps+'/'+pn+'</div><h2>'+(ps===pn?"All correct":"Keep practising")+'</h2></div></div><p class="lede">Practice runs do not change your progress. Play the full set to complete it.</p>'+review();
+  }
+var score=S.marks.filter(Boolean).length;var n=S.run.length;var ok=score>=passN(a);
+  var seen={},items=[];
+  S.run.forEach(function(q){if(q.s&&!seen[q.s]){seen[q.s]=1;items.push('<li>'+a.title+' '+q.s+' · '+riksLink(a)+'</li>');}});
+  var hasNext=S.m<ACTS.length-1;
+  setDock('<button class="btn sec" data-act="retry">Try again</button><button class="btn pri" data-act="'+(hasNext?"nextmod":"home")+'">'+(hasNext?(a.ch2||a.ch3?"Next set":"Next act"):(a.ch2||a.ch3?"All sets":"All acts"))+'</button>');
+  var unl=S.unl?'<div class="how"><strong>Chapter 2</strong><p>Chapter 2 on the home screen has real situations to practise.</p></div>':"";
+  if(a.ch2){
+    return '<div class="score"><div class="stamp '+(ok?"":"miss")+'" aria-hidden="true">'+(ok?CHECK:'<span class="eyebrow">not yet</span>')+'</div><div class="score-t"><div class="eyebrow">Chapter 2 · '+a.title+'</div><div class="big">'+score+'/'+n+'</div><h2>'+(ok?"Set complete":(score>=passN(a)-1?"Almost there":"Keep going"))+'</h2></div></div><p class="lede">'+(ok?"You scored "+score+" of "+n+". This set is complete.":"You need "+passN(a)+" of "+n+" to complete this set. Check the sources for the situations you missed, then try again.")+'</p>'+review()+'<details class="actd"><summary>Sources for these situations</summary>'+actSrc2(a)+'</details>';
+  }
+  if(a.ch3){
+    return '<div class="score"><div class="stamp '+(ok?"":"miss")+'" aria-hidden="true">'+(ok?CHECK:'<span class="eyebrow">not yet</span>')+'</div><div class="score-t"><div class="eyebrow">Chapter 3 · '+a.title+'</div><div class="big">'+score+'/'+n+'</div><h2>'+(ok?"Set complete":(score>=passN(a)-1?"Almost there":"Keep going"))+'</h2></div></div><p class="lede">'+(ok?"You scored "+score+" of "+n+". This set is complete.":"You need "+passN(a)+" of "+n+" to complete this set. Read the explanations for the terms you missed, then try again.")+'</p>'+review()+'<details><summary>Sections used in this set</summary><ul class="ul">'+items.join("")+'</ul></details><details class="actd"><summary>Sources and translation for this act</summary>'+actSrc(a)+'</details>';
+  }
+  return unl+'<div class="score"><div class="stamp '+(ok?"":"miss")+'" aria-hidden="true">'+(ok?'<svg viewBox="0 0 24 24" width="56" height="56"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>':'<span class="eyebrow">not yet</span>')+'</div><div class="score-t"><div class="eyebrow">'+a.title+'</div><div class="big">'+score+'/'+n+'</div><h2>'+(ok?"Act complete":(score>=passN(a)-2?"Almost there":"Keep going"))+'</h2></div></div>'+
+    '<p class="lede">'+(ok?"You scored "+score+" of "+n+". This act is complete.":"You need "+passN(a)+" of "+n+" to complete this act. Read the key points below, then try again.")+'</p>'+
+    review()+
+    '<details><summary>Key points of this act</summary><ul class="points" style="margin-top:10px">'+pointsHtml(a)+'</ul></details>\n    '+'<details><summary>Sections used in this quiz</summary><ul class="ul">'+items.join("")+'</ul></details><details class="actd"><summary>Sources and translation for this act</summary>'+actSrc(a)+'</details>';
+}
+function sources(){
+  setDock("");
+  var cards=ACTS.map(function(a,i){
+    var c2=ACTS2[i];
+    var un=c2.srcs.map(function(s){return '<div class="sr"><span class="tg un">Union advice</span><span>'+dom(s[1])+': '+lnk(s[0],s[1])+'</span></div>';}).join("");
+    return '<details class="actd"><summary>'+(i+1)+'. '+a.full+' <span class="note">SFS '+a.sfs+'</span></summary><div class="eyebrow" style="margin-top:12px">The law (chapters 1 and 3)</div>'+actSrc(a)+'<div class="eyebrow" style="margin-top:12px">Union advice (chapter 2)</div><div class="sb">'+un+'</div></details>';
+  }).join("");
+  var U="https://www.unionen.se/rad-och-stod/",SI2="https://www.sverigesingenjorer.se/lagar-regler/",LO2="https://lo.se/start/politiska_sakfragor/arbetsratt/lagarna/";
+  var hp=[["Uppsägning",U+"om-uppsagning"],["Råd om du känner dig trakasserad",U+"rad-om-du-kanner-dig-trakasserad"],["Arbetsmiljö",U+"om-arbetsmiljo"],["Regler för övertid",U+"regler-overtid"],["Att avbryta eller ändra semestern",U+"att-avbryta-eller-andra-semestern"],["Varsel eller uppsägning",SI2+"varsel-eller-uppsagning-fran-arbetsgivare/"],["Arbetstid",SI2+"arbetstid/"],["Semester",SI2+"semester/"],["Anställningsskydd",LO2+"anstallningsskydd"],["Arbetsmiljö",LO2+"arbetsmiljo"]];
+  var help='<details class="actd"><summary>What to do now page</summary><div class="sb" style="margin-top:12px">'+hp.map(function(s){return '<div class="sr"><span class="tg un">Union advice</span><span>'+dom(s[1])+': '+lnk(s[0],s[1])+'</span></div>';}).join("")+'</div></details>';
+  return ''+topRow('<button class="back" data-act="home">← All acts</button>')+'<header><div class="eyebrow">Källor</div><h2>Sources</h2><p class="lede" style="margin-top:8px">Tap an act to see its sources. Only the Swedish law texts are official. Union pages are advice. Last checked '+CHECKED+'.</p></header>'+
+    '<div class="sb"><div class="sr"><span class="tg">Official</span><span>riksdagen.se, government.se, do.se</span></div><div class="sr"><span class="tg un">Not official</span><span>lagen.nu (private help), unionen.se, lo.se, sverigesingenjorer.se (union advice)</span></div></div>'+cards+help;
+}
+function help(){
+  setDock("");
+  var U="https://www.unionen.se/rad-och-stod/",SI2="https://www.sverigesingenjorer.se/lagar-regler/",LO2="https://lo.se/start/politiska_sakfragor/arbetsratt/lagarna/";
+  var cid=0,ci=0;
+  function steps(a){return '<ol class="hs">'+a.map(function(x){cid++;var id="h"+ci+"_"+cid;return '<li><label><input type="checkbox" data-ck="'+id+'"'+(CK[id]?' checked':'')+'><span>'+x+'</span></label></li>';}).join("")+'</ol>';}
+  function src(a){return '<p class="srcline">Union advice · '+a.map(function(s){return lnk(dom(s[1]),s[1]);}).join(" · ")+'</p>';}
+  function law(k,secs){var a=act(k);return '<p class="srcline">The law · '+a.title+(secs?' '+secs:'')+' · '+riksLink(a)+' · '+lagenLink(a)+' (lagen.nu is not official)</p>';}
+  var LAWS=[law("LAS","8, 11, 25 and 40 §§"),law("DL","2 kap. 3 and 18 §§"),law("AML","3 kap. 3 a §, 6 kap. 6 a and 7 §§"),law("ATL","8 §"),law("SEM","")];
+  var SUBS=["Act within 14 days","Write it down and tell someone","Tell your manager, then your safety rep","Check what was ordered and agreed","You can't refuse, but costs are covered"];
+  function card(title,dl,first,more,srcs,sub){
+    ci++;cid=0;
+    return {t:title,html:'<section class="punch"><h2 class="h2s">'+title+'</h2>'+(dl?'<div class="how"><strong>'+dl[0]+'</strong><p>'+dl[1]+'</p></div>':'')+'<div class="eyebrow">Do this first</div>'+steps(first)+(more?'<details class="srcd"><summary>'+sub+'</summary>'+steps(more)+'</details>':'')+src(srcs)+LAWS[ci-1]+'</section>'};
+  }
+  var C=[
+  card("You have been terminated or told about redundancy",["Act within 14 days","If you think the termination is wrong, contact your local union at once. If there is no local union, contact your trade union's legal advisers. Waiting can cost you the right to challenge it."],[
+    'Check that the notice is <b>in writing</b> and handed to you.',
+    'Contact your <b>local union</b> now. If there is none, contact your <b>trade union\'s legal advisers</b>. In a redundancy the union handles the negotiation, not you alone.',
+    '<b>Do not sign</b> any termination agreement or package until your union (local or central union) has been involved. Signing is voluntary.',
+    'Keep the written notice and any other papers you get, such as the list of who is terminated first.'],[
+    '<b>Warning:</b> before terminating you for personal reasons, the employer must warn you two weeks ahead (one week before avsked).',
+    '<b>Consultation:</b> you and your local union then have one week to ask for a meeting. The employer must wait until it has been held.',
+    'Your <b>notice period</b> comes from your contract first, then your collective agreement, then the law. By law it is 1 to 6 months, depending on years of employment.',
+    'If it is a redundancy and you worked more than 12 months in the last three years, you have <b>priority to be rehired</b> for about nine months. Ask for it in writing.',
+    'Unused and saved leave days and overtime are paid out within one month after the job ends.',
+    'If you may need unemployment benefits, contact your unemployment insurance fund early. Some union members also have income insurance.'],
+    [["Unionen: Uppsägning",U+"om-uppsagning"],["Sveriges Ingenjörer: Varsel eller uppsägning",SI2+"varsel-eller-uppsagning-fran-arbetsgivare/"],["LO: Anställningsskydd",LO2+"anstallningsskydd"]],"Warnings, notice period, rehiring and money"),
+  card("You are being harassed",null,[
+    'You decide whether you feel harassed. If you feel safe doing so, <b>say clearly</b> that it is unwelcome.',
+    '<b>Write down</b> what was said or done, the date and time, and anyone who saw it.',
+    '<b>Tell your manager</b>, or another manager you trust. The employer must then investigate and act to stop it.',
+    'Talk to your <b>local union</b> or workplace representative. If there is none, contact your <b>trade union\'s legal advisers</b>. They can support you and ask the employer to negotiate.'],[
+    'Ask for <b>written minutes</b> that say what was decided, who does what and how it will be followed up.',
+    'If nothing changes, go back to your local union, or your trade union\'s legal advisers if there is none, and ask for help escalating.'],
+    [["Unionen: Råd om du känner dig trakasserad",U+"rad-om-du-kanner-dig-trakasserad"]],"Afterwards"),
+  card("Your work is unsafe",null,[
+    'If someone is in <b>immediate danger</b>, call 112.',
+    'Tell your <b>closest manager</b> first.',
+    'If nothing happens, go to your <b>safety representative</b> (skyddsombud). If there is none, contact your local union, or your <b>trade union\'s legal advisers</b> if there is no local union.',
+    'Report <b>near-misses</b> too (tillbud), even if nobody was hurt.'],[
+    'The safety representative can ask the employer for measures. If the employer still does nothing, the case can go to Arbetsmiljöverket.',
+    'A safety representative can <b>stop work</b> that is an immediate risk to life or health.',
+    'You are also expected to point out risks and suggest fixes.'],
+    [["Unionen: Arbetsmiljö",U+"om-arbetsmiljo"],["LO: Arbetsmiljö",LO2+"arbetsmiljo"]],"If nothing changes"),
+  card("Your overtime is not paid",null,[
+    'Check that the overtime was <b>ordered</b> in advance or <b>approved</b> afterwards by your employer.',
+    '<b>Write down</b> the dates and hours you worked. Your employer must also keep a record of overtime.',
+    'Check your <b>collective agreement</b> for overtime pay. Without one, check your <b>employment contract</b>.',
+    'Raise it with your manager. If that does not help, contact your <b>local union</b>, or your <b>trade union\'s legal advisers</b> if there is none.'],[
+    'You do not have to give up overtime pay. A deal to swap it for extra leave or salary is voluntary and should be in writing.',
+    'Even with such a deal, the limits on overtime still apply.'],
+    [["Unionen: Regler för övertid",U+"regler-overtid"],["Sveriges Ingenjörer: Arbetstid",SI2+"arbetstid/"]],"Overtime deals"),
+  card("Your employer cancels your leave",null,[
+    'You cannot refuse, but your employer needs <b>strong reasons</b>, such as something unforeseen that the whole company depends on.',
+    'Ask your <b>local union</b>, or your <b>trade union\'s legal advisers</b> if there is none, whether the reasons are strong enough.',
+    '<b>Keep receipts</b> for extra costs such as rebooking or cancelling a trip. You are entitled to have them covered.',
+    'Agree with your manager <b>when</b> you will take the cancelled days instead.'],[
+    'If there were no strong reasons, the employer may owe you damages.',
+    'There is no automatic right to extra pay for being called back, but you can agree on it.',
+    'During leave you do not have to be reachable or on standby.'],
+    [["Unionen: Att avbryta eller ändra semestern",U+"att-avbryta-eller-andra-semestern"],["Sveriges Ingenjörer: Semester",SI2+"semester/"]],"More about cancelled leave")];
+  var top=topRow('<button class="back" data-act="home">← Home</button>')+'<header><div class="eyebrow">In case of emergency</div><h2>What to do now</h2><p class="lede" style="margin-top:8px">'+(S.hs==null?'What is happening to you? Pick one.':'Follow the steps from the top. Tick them off as you go; ticks are saved on this device.')+'</p></header>'+
+  '<aside class="disc"><strong>Danger to life?</strong>Call 112 first.</aside>';
+  function tile(x,i){return '<button class="mod" data-act="hsit" data-i="'+i+'"><span class="mod-n">'+(i+1)+'</span><span class="mod-b"><strong>'+x.t+'</strong><span class="mod-t">'+SUBS[i]+'</span></span><span class="badge">Open</span></button>';}
+  var foot='<p class="note">Advice comes from Swedish trade unions; the law links go to riksdagen.se (official) and lagen.nu (not official). It is not legal advice and some union help requires union membership. Your collective agreement may give you different rules. Last checked '+CHECKED+'.</p>';
+  if(S.hs==null){return top+'<section class="list" aria-label="Situations">'+C.map(tile).join("")+'</section>'+foot;}
+  var k=S.hs;
+  return top+'<p><button class="back" data-act="hsit" data-i="-1">← All situations</button></p>'+C[k].html+'<p><button class="lk" data-act="ckclear">Clear ticks</button></p>'+
+    '<section class="list" aria-label="Other situations"><div class="eyebrow">Other situations</div>'+C.map(function(x,i){return i===k?'':tile(x,i);}).join("")+'</section>'+foot;
+}
+function glossFilter(){
+  var inp=document.getElementById("gq");var q=inp?inp.value.trim().toLowerCase():"";var n=0;
+  app.querySelectorAll('.gl').forEach(function(g){var ok=(!q||g.getAttribute("data-s").indexOf(q)>=0)&&(!S.gk||g.getAttribute("data-k")===S.gk);g.hidden=!ok;if(ok){n++;}});
+  var c=document.getElementById("gcount");if(c){c.textContent=n+" of "+GLOSS.length+" terms";}
+}
+function gloss(){
+  setDock("");
+  var letters=[];
+  var items=GLOSS.map(function(g){
+    var a=act(g[3]);var L=g[0].charAt(0).toUpperCase();if(letters.indexOf(L)<0){letters.push(L);}
+    var s=(g[0]+" "+g[1]+" "+g[2]).toLowerCase().replace(/"/g,"");
+    return '<div class="gl" data-k="'+g[3]+'" data-l="'+L+'" data-s="'+s+'"><dt>'+g[0]+'<span>'+g[1]+'</span></dt><dd>'+g[2]+'</dd><dd class="note">'+a.title+'</dd><dd><details class="srcd"><summary>Source</summary>'+srcBlock(a,g[4],null,null)+'</details></dd></div>';
+  }).join("");
+  var chips=ACTS.map(function(a){return '<button data-act="gk" data-k="'+a.k+'" aria-pressed="'+(S.gk===a.k)+'">'+a.title.replace(/ Act$/,"")+'</button>';}).join("");
+  var az=letters.map(function(L){return '<button data-act="gjump" data-l="'+L+'" aria-label="Jump to '+L+'">'+L+'</button>';}).join("");
+  setTimeout(glossFilter,0);
+  return ''+topRow(S.back==="quiz"&&S.run?'<button class="back" data-act="backquiz">← Back to quiz</button>':'<button class="back" data-act="home">← All acts</button>')+'<header><div class="eyebrow">Ordlista</div><h2>Glossary</h2></header>'+
+    '<div class="gtools"><label for="gq" class="eyebrow">Search in Swedish or English</label><input id="gq" type="search" autocomplete="off" placeholder="e.g. övertid or notice"><div class="chips" role="group" aria-label="Filter by act">'+chips+'</div><div class="az" role="group" aria-label="Jump to letter">'+az+'</div><p class="note" id="gcount" aria-live="polite"></p></div>'+
+    '<dl>'+items+'</dl><p class="note">Learning material, not legal advice.</p>';
+}
+
+function render(){
+  var v=S.view;
+  app.innerHTML=v==="home"?home():v==="lesson"?lesson():v==="quiz"?quiz():v==="result"?result():v==="sources"?sources():v==="help"?help():gloss();
+}
+function go(v){S.view=v;S.leaveArm=false;if(v!=="home"){S.resetArm=false;}render();window.scrollTo(0,0);}
+function diffOf(q){if(q.d){return q.d;}var l=q.a.length;return l<=25?1:(l<=60?2:3);}
+function startRun(only){
+  var A=cur(),list;
+  if(only){
+    list=A.qs.filter(function(q){return only.indexOf(q.q)>=0;});
+  }else{
+    var units=[],u=null;
+    A.qs.forEach(function(q){if(q.cont&&u){u.push(q);}else{u=[q];units.push(u);}});
+    var n=setN(A),tot=0,chosen=[];
+    shuffle(units).forEach(function(x){if(tot+x.length<=n){chosen.push({u:x,k:diffOf(x[0])+Math.random()*0.9});tot+=x.length;}});
+    chosen.sort(function(x,y){return x.k-y.k;});
+    list=[];chosen.forEach(function(c){list=list.concat(c.u);});
+  }
+  S.run=list.map(function(q){
+    return {act:A,q:q.q,sc:q.sc||null,ca:q.ca||null,si:q.si,law:q.law||null,sv:q.sv||null,e:q.e,s:q.s,eq:q.eq||null,t:q.t||null,o:shuffle([{t:q.a,c:true}].concat(q.w.map(function(t){return {t:t,c:false};})))};
+  });
+  S.qi=0;S.picked=null;S.marks=[];
+}
+
+document.addEventListener("input",function(e){if(e.target&&e.target.id==="gq"){glossFilter();}});
+document.addEventListener("change",function(e){var c=e.target;if(c&&c.getAttribute&&c.getAttribute("data-ck")){var id=c.getAttribute("data-ck");if(c.checked){CK[id]=1;}else{delete CK[id];}try{localStorage.setItem("lsdswe.checks",JSON.stringify(CK));}catch(e6){}}});
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b){return;}
+  var a=b.getAttribute("data-act");
+  if(a==="home"){go("home");}
+  else if(a==="gloss"){S.back=null;go("gloss");}
+  else if(a==="sources"){go("sources");}
+  else if(a==="open"){S.practice=false;S.ch=1;S.unl=false;S.m=parseInt(b.getAttribute("data-m"),10);go("lesson");}
+  else if(a==="open2"){S.practice=false;S.ch=2;S.unl=false;S.m=parseInt(b.getAttribute("data-m"),10);go("lesson");}
+  else if(a==="open3"){S.practice=false;S.ch=3;S.unl=false;S.m=parseInt(b.getAttribute("data-m"),10);go("lesson");}
+  else if(a==="help"){S.hs=null;go("help");}
+  else if(a==="hsit"){var hi=parseInt(b.getAttribute("data-i"),10);S.hs=hi<0?null:hi;go("help");}
+  else if(a==="start"||a==="retry"){S.practice=false;startRun();go("quiz");}
+  else if(a==="retrymiss"){var ms=S.run.filter(function(r){return r.p!=null&&!r.o[r.p].c;}).map(function(r){return r.q;});if(!ms.length){return;}S.practice=true;startRun(ms);go("quiz");}
+  else if(a==="leave"){if((S.qi===0&&S.picked==null)||S.leaveArm){go("home");}else{S.leaveArm=true;render();}}
+  else if(a==="reset"){if(S.resetArm){P={best:[null,null,null,null,null,null,null],best2:[null,null,null,null,null,null,null],best3:[null,null,null,null,null,null,null]};save();S.resetArm=false;render();}else{S.resetArm=true;render();var rb=app.querySelector('[data-act="reset"]');if(rb){rb.focus();}}}
+  else if(a==="gk"){var k=b.getAttribute("data-k");S.gk=(S.gk===k)?null:k;app.querySelectorAll('.chips button').forEach(function(c){c.setAttribute("aria-pressed",String(c.getAttribute("data-k")===S.gk));});glossFilter();}
+  else if(a==="gjump"){var L=b.getAttribute("data-l"),hit=null;app.querySelectorAll('.gl').forEach(function(g){if(!hit&&!g.hidden&&g.getAttribute("data-l")===L){hit=g;}});if(hit){hit.scrollIntoView({block:"start",behavior:"smooth"});}}
+  else if(a==="ckclear"){CK={};try{localStorage.setItem("lsdswe.checks","{}");}catch(e5){}render();}
+  else if(a==="glossq"){S.back="quiz";go("gloss");}
+  else if(a==="backquiz"){S.back=null;go("quiz");}
+  else if(a==="pick"){
+    if(S.picked!=null){return;}
+    var i=parseInt(b.getAttribute("data-i"),10);
+    S.leaveArm=false;S.picked=i;S.run[S.qi].p=i;S.marks[S.qi]=S.run[S.qi].o[i].c;render();
+    var f=document.getElementById("fb");if(f){f.scrollIntoView({block:"nearest",behavior:"smooth"});try{f.focus({preventScroll:true});}catch(e3){}}
+  }
+  else if(a==="next"){
+    if(S.qi<S.run.length-1){S.qi++;S.picked=null;go("quiz");}
+    else{
+      if(S.practice){go("result");return;}
+      var sc=S.marks.filter(Boolean).length;
+      var arr=bestArr();var before=unlocked();var prev=arr[S.m];arr[S.m]=prev==null?sc:Math.max(prev,sc);save();S.unl=(S.ch===1&&!before&&unlocked());
+      go("result");
+    }
+  }
+  else if(a==="sizecycle"){SZ=(SZ+1)%3;applySize();try{localStorage.setItem("arbetsratt101.size",String(SZ));}catch(e4){}render();var nb=app.querySelector('[data-act="sizecycle"]');if(nb){nb.focus();}}
+  else if(a==="size"){SZ=parseInt(b.getAttribute("data-i"),10);applySize();try{localStorage.setItem("arbetsratt101.size",String(SZ));}catch(e2){}render();}
+  else if(a==="nextmod"){S.unl=false;S.m=Math.min(S.m+1,ACTS.length-1);go("lesson");}
+});
+
+document.addEventListener("keydown",function(e){
+  if(S.view!=="quiz"||e.ctrlKey||e.metaKey||e.altKey){return;}
+  var k=e.key.toLowerCase();var i="1234".indexOf(k);if(i<0){i="abcd".indexOf(k);}
+  if(S.picked==null&&i>=0&&i<4){var bt=app.querySelectorAll('[data-act="pick"]')[i];if(bt){e.preventDefault();bt.click();}}
+  else if(S.picked!=null&&(k==="n"||k==="arrowright")){var nx=dockin.querySelector('[data-act="next"]');if(nx){e.preventDefault();nx.click();}}
+});
+render();
+})();
+</script>
+
+</body>
+</html>
